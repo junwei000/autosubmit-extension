@@ -1,6 +1,6 @@
 {
   "name": "autosubmit-extension",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "Browser extension that detects submission forms on AI directory sites and autofills them with your product info.",
   "license": "MIT",
