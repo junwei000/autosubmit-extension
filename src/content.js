@@ -229,10 +229,10 @@
     let node = el.parentElement;
     for (let depth = 0; node && depth < 5; depth++, node = node.parentElement) {
       if (node === document.body) break;
-      const candidates = node.querySelectorAll(LABELISH);
+      const candidates = [...node.querySelectorAll(LABELISH)].reverse();
       for (const c of candidates) {
         if (c.contains(el) || host.contains(c)) continue;
-        // Only label-ish text that precedes the field.
+        // Nearest label-ish text that precedes the field.
         if (!(c.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING)) continue;
         const txt = c.textContent.trim();
         if (txt && txt.length < 140) return txt;
@@ -252,9 +252,9 @@
     if (el.labels) for (const l of el.labels) parts.push(l.textContent);
     const wrap = el.closest('label');
     if (wrap && !(el.labels && [...el.labels].includes(wrap))) parts.push(wrap.textContent);
+    parts.push(el.getAttribute('aria-label'), textOfIds(el.getAttribute('aria-labelledby')));
+    const labelled = parts.some((p) => p && p.trim());
     parts.push(
-      el.getAttribute('aria-label'),
-      textOfIds(el.getAttribute('aria-labelledby')),
       el.getAttribute('placeholder'),
       el.getAttribute('data-placeholder'),
       el.getAttribute('title'),
@@ -263,7 +263,7 @@
     );
     const direct = clean(parts.filter(Boolean).join(' | '));
     const ctx = clean(contextText(el));
-    return { direct, ctx, all: `${direct} | ${ctx}` };
+    return { direct, ctx, labelled, all: `${direct} | ${ctx}` };
   }
 
   // ---------------------------------------------------------------------------
@@ -277,7 +277,8 @@
     tags: /\btags?\b|\bkeywords?\b|\bcategor(y|ies)\b|\btopics?\b|标签|关键词|分类|类别/,
     useCases: /use\s?cases?|\busages?\b|\bscenarios?\b|who (is it|it's|its) for|\bideal for\b|target (users|audience)|使用场景|应用场景|用例|适用/,
     features: /\bfeatures?\b|\bhighlights?\b|\bcapabilit(y|ies)\b|\bwhat (it|does it) do\b|功能|特点|特性|亮点/,
-    tagline: /tagline|slogan|one.?liner|\bshort\s?(desc|description|intro|summary|pitch)\b|\bsubtitle\b|\bsubheading\b|\bheadline\b|\bsummary\b|\bexcerpt\b|\bpitch\b|一句话|简短|标语|口号|副标题/,
+    // Tagline also covers every flavour of "short description".
+    tagline: /tagline|slogan|one.?liner|\bone.?line\b|\b(short|brief|mini|quick)\b[\w\s]{0,20}?\b(desc|description|intro|introduction|summary|pitch|overview|text|bio)\b|\b(desc|description)\s?\(?\s?(short|brief)\b|shortdesc|\bsubtitle\b|\bsubheading\b|\bheadline\b|\bsummary\b|\bexcerpt\b|\bpitch\b|一句话|简短|简要|简述|短描述|短介绍|标语|口号|副标题/,
     description: /\bdesc\b|description|\babout\b|\bdetails?\b|introduction|\bintro\b|overview|\bcontent\b|\bbody\b|\bmessage\b|tell us|explain|描述|介绍|简介|详情|说明|正文/,
     url: /\burl\b|\buri\b|\blink\b|homepage|home page|website|web site|\bsite\b|\bdomain\b|\bweb\b|网址|网站|链接|官网|地址/,
     name: /\bname\b|\btitle\b|product|\btool\b|\bapp\b|\bproject\b|\bstartup\b|\bbrand\b|名称|标题|产品|工具/
@@ -313,7 +314,14 @@
     if (RX.useCases.test(s)) return 'useCases';
     if (RX.features.test(s)) return 'features';
     if (RX.tagline.test(s)) return 'tagline';
-    if (RX.description.test(s)) return 'description';
+    if (RX.description.test(s)) {
+      // A visible "Short description" label beats a generic name="description" attribute.
+      if (!desc.labelled && desc.ctx && RX.tagline.test(desc.ctx) && !RX.description.test(desc.ctx.replace(RX.tagline, ''))) return 'tagline';
+      // A length-capped single-line box can't hold a full description.
+      const max = parseInt(el.getAttribute('maxlength'), 10);
+      if (kind === 'text' && max > 0 && max <= 160) return 'tagline';
+      return 'description';
+    }
     if (RX.url.test(s) && !/\bname\b|\btitle\b|名称/.test(s)) return 'url';
     if (RX.name.test(s)) return 'name';
 

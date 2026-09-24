@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "AutoSubmit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Detect submission forms on AI directory sites and autofill them with your product info. All data stays in your browser.",
   "icons": {
     "16": "icons/icon16.png",

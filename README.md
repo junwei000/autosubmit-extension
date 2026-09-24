@@ -24,7 +24,7 @@
   | Product name | Tool name, Product name, Title, 名称 |
   | Product URL | Website, URL, Link, Homepage, 网址 |
   | Email | Email, Contact email, 邮箱 |
-  | Tagline | Short description, Slogan, One-liner, Summary |
+  | Tagline / short description | Short description, Brief description, One-line description, Description (short), Slogan, Summary, 简短描述. An unlabelled field under a "Short description" heading, or a single-line description box capped at 160 characters, also gets the tagline |
   | Description | Description, About, Tell us about…, 描述 |
   | Use cases | Use cases, Scenarios, Who is it for |
   | Key features | Features, Highlights, 功能 |
@@ -103,7 +103,7 @@ Found a directory the matcher gets wrong? Open an issue with the site URL, or ad
 
 - 页面右侧边缘吸附一个银白色圆形 **S** 按钮，可以上下拖动，角标显示检测到的表单字段数。
 - 点击后在右侧打开宽 300px、约占屏幕 3/4 高的面板：显示当前域名和页面、表单检测结果、我的链接（产品卡片）、字段预览和填充结果。
-- 字段识别综合了 label、aria、placeholder、name/id、autocomplete 以及附近的标题文字，中英文都支持。可以识别**产品名称、URL、邮箱、一句话介绍、描述、使用场景、核心功能、标签（文本框、下拉框、复选框）、Logo 和主图（文件上传）**。
+- 字段识别综合了 label、aria、placeholder、name/id、autocomplete 以及附近的标题文字，中英文都支持。可以识别**产品名称、URL、邮箱、一句话介绍（也匹配 Short Description / 简短描述等字段）、描述、使用场景、核心功能、标签（文本框、下拉框、复选框）、Logo 和主图（文件上传）**。
 - 兼容 React、Vue 等框架的表单、富文本编辑器，以及隐藏在拖拽上传区域里的文件上传框，并遵守字段的 maxlength。
 - 自动跳过个人姓名、电话、密码、社交链接、验证码和同意条款等字段。默认不覆盖已经填写的内容。**插件不会自动点击提交**，方便你在提交前检查。
 - 可以按产品把站点“标记为已提交”，下次访问同一站点时会显示 ✓。

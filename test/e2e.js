@@ -26,7 +26,7 @@ const fs = require('fs');
       name: 'H3 Max', url: 'https://h3max.pro', email: 'support@h3max.pro',
       description: 'Generate AI video in a few seconds. Turn prompts into cinematic clips.',
       useCases: 'Marketing videos\nSocial clips', features: 'Text to video\n1080p export',
-      tags: 'AI Video, Productivity', logo: { data: 'data:image/png;base64,' + png, name: 'logo.png' },
+      tags: 'AI Video, Productivity', tagline: 'Turn prompts into cinematic clips.', logo: { data: 'data:image/png;base64,' + png, name: 'logo.png' },
       hero: { data: 'data:image/png;base64,' + png, name: 'hero.png' }
     });
     await Store.upsertProduct({ name: 'Aniv AI', url: 'https://aniv.ai', email: 'support@aniv.ai', description: 'AI short dramas.' });
@@ -61,6 +61,18 @@ const fs = require('fs');
     return o;
   });
   console.log(JSON.stringify(vals, null, 2));
+  const shortVals = await page.evaluate(() =>
+    Object.fromEntries([...document.getElementById('short').elements].map((el) => [el.name, el.value])));
+  console.log('short-description variants:', JSON.stringify(shortVals, null, 2));
+  const TAGLINE = 'Turn prompts into cinematic clips.';
+  const DESCRIPTION = 'Generate AI video in a few seconds. Turn prompts into cinematic clips.';
+  const failures = Object.entries(shortVals)
+    .filter(([k, v]) => v !== (k === 'long' ? DESCRIPTION : TAGLINE))
+    .map(([k, v]) => `${k}=${JSON.stringify(v)}`);
+  // maxlength=40 on this field is longer than the tagline, so it must arrive intact.
+  if (vals.short_desc !== TAGLINE) failures.push(`short_desc=${vals.short_desc}`);
+  if (failures.length) { console.error('FAILED:', failures.join(', ')); process.exitCode = 1; }
+  else console.log('all short-description variants received the tagline');
   console.log('panel result:', await panel.$eval('#resultHead', (e) => e.textContent));
   await ctx.close(); server.close();
 })().catch((e) => { console.error(e); process.exit(1); });
