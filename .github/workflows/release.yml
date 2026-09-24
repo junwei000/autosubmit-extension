@@ -1,0 +1,68 @@
+name: Release
+
+# Two ways to publish a release:
+#   1. Bump "version" in manifest.json, then push a matching tag:  git tag v1.0.1 && git push origin v1.0.1
+#   2. Bump "version" in manifest.json on main, then Actions → Release → "Run workflow"
+#      (the tag v<version> is created for you).
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Resolve version
+        id: version
+        run: |
+          version=$(node -p "require('./manifest.json').version")
+          tag="v${version}"
+          if [ "${GITHUB_EVENT_NAME}" = "push" ] && [ "${GITHUB_REF_NAME}" != "${tag}" ]; then
+            echo "::error::Tag ${GITHUB_REF_NAME} does not match manifest.json version ${version} (expected ${tag})."
+            exit 1
+          fi
+          if gh release view "${tag}" >/dev/null 2>&1; then
+            echo "::error::Release ${tag} already exists. Bump \"version\" in manifest.json first."
+            exit 1
+          fi
+          echo "version=${version}" >> "$GITHUB_OUTPUT"
+          echo "tag=${tag}" >> "$GITHUB_OUTPUT"
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Package extension
+        id: package
+        run: echo "zip=$(scripts/package.sh | tail -n1)" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub release
+        run: |
+          cat > notes.md <<NOTES
+          ## Install
+
+          1. Download **autosubmit-v${VERSION}.zip** below and unzip it.
+          2. Open \`chrome://extensions\` (or \`edge://extensions\`) and turn on **Developer mode**.
+          3. Click **Load unpacked** and select the unzipped folder (the one containing \`manifest.json\`).
+
+          To upgrade, unzip the new version over the old folder and click **Reload** on the extension card. Your links are kept.
+
+          NOTES
+          gh release create "${TAG}" "${ZIP}" \
+            --title "AutoSubmit ${TAG}" \
+            --notes-file notes.md \
+            --generate-notes \
+            --target "${GITHUB_SHA}"
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.version.outputs.version }}
+          TAG: ${{ steps.version.outputs.tag }}
+          ZIP: ${{ steps.package.outputs.zip }}

@@ -41,7 +41,7 @@
 
 ## Install
 
-1. Download this repository (**Code → Download ZIP**) and unzip it, or run `git clone`.
+1. Download the latest `autosubmit-vX.Y.Z.zip` from [**Releases**](https://github.com/junwei000/autosubmit-extension/releases/latest) and unzip it. (Or clone this repository.)
 2. Open `chrome://extensions` (or `edge://extensions`) and turn on **Developer mode**.
 3. Click **Load unpacked** and select the project folder (the one that contains `manifest.json`).
 4. Pin the extension if you like. Clicking the toolbar icon also toggles the panel.
@@ -77,8 +77,15 @@ No build step: edit the files, then click **Reload** on `chrome://extensions`.
 npm install          # playwright (only needed for tests/icons)
 npm test             # loads the unpacked extension in Chromium and autofills test/fixture.html
 npm run icons        # re-render icons/*.png from icons/logo.svg
-npm run zip          # package for the Chrome Web Store
+npm run zip          # build dist/autosubmit-v<version>.zip (same as CI)
 ```
+
+### Releasing
+
+The [Release workflow](.github/workflows/release.yml) builds the zip and publishes a GitHub Release:
+
+1. Bump `"version"` in `manifest.json` and merge to `main`.
+2. Push a matching tag (`git tag v1.0.1 && git push origin v1.0.1`), **or** open *Actions → Release → Run workflow* and the tag `v<version>` is created for you.
 
 Found a directory the matcher gets wrong? Open an issue with the site URL, or add its label wording to the rules in `src/content.js` (`RX`) and send a PR.
 
@@ -104,7 +111,7 @@ Found a directory the matcher gets wrong? Open an issue with the site URL, or ad
 
 ### 安装
 
-1. 下载本仓库（Code → Download ZIP）并解压，或者用 `git clone`。
+1. 从 [**Releases**](https://github.com/junwei000/autosubmit-extension/releases/latest) 下载最新的 `autosubmit-vX.Y.Z.zip` 并解压（也可以直接 `git clone` 本仓库）。
 2. 打开 `chrome://extensions`（Edge 是 `edge://extensions`），开启右上角的**开发者模式**。
 3. 点击**加载已解压的扩展程序**，选择包含 `manifest.json` 的项目目录。
 
@@ -114,3 +121,7 @@ Found a directory the matcher gets wrong? Open an issue with the site URL, or ad
 2. 打开某个 AI 导航站的提交页面。
 3. 点击 **S**，在“我的链接”里选中产品，点 **自动填充**。
 4. 检查表单，补全验证码等剩余项后手动提交，再勾选“标记为已提交”。
+
+### 发布新版本
+
+修改 `manifest.json` 里的 `version` 并合并到 `main`，然后推送同名 tag（如 `v1.0.1`），或者在 Actions → Release 里点 **Run workflow**。CI 会自动打包 zip 并发布到 Releases。

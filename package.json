@@ -7,7 +7,7 @@
   "scripts": {
     "icons": "node scripts/render-icons.js",
     "test": "node test/e2e.js",
-    "zip": "zip -r autosubmit.zip manifest.json src icons -x 'icons/*.svg~'"
+    "zip": "scripts/package.sh"
   },
   "devDependencies": {
     "playwright": "^1.56.0"
