@@ -2,3 +2,4 @@ node_modules/
 test/shot-*.png
 *.zip
 .DS_Store
+dist/
