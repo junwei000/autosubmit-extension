@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AutoSubmit</title>
+  <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+  <header class="head">
+    <img class="logo" src="../icons/logo.svg" alt="">
+    <span class="brand">AutoSubmit</span>
+    <label class="lang" data-i18n-title="appName">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm6.9 6h-2.9a15.7 15.7 0 0 0-1.4-3.6A8 8 0 0 1 18.9 8ZM12 4c.8 1.2 1.5 2.5 1.9 4h-3.8c.4-1.5 1.1-2.8 1.9-4ZM4.3 14a8.2 8.2 0 0 1 0-4h3.4a16.5 16.5 0 0 0 0 4H4.3Zm.8 2h3a15.7 15.7 0 0 0 1.3 3.6A8 8 0 0 1 5.1 16Zm3-8h-3a8 8 0 0 1 4.3-3.6C8.8 5.5 8.3 6.7 8 8Zm3.9 12c-.8-1.2-1.5-2.5-1.9-4h3.8c-.4 1.5-1.1 2.8-1.9 4Zm2.3-6H9.8a14.7 14.7 0 0 1 0-4h4.4a14.7 14.7 0 0 1 0 4Zm.3 5.6c.6-1.1 1-2.3 1.3-3.6h3a8 8 0 0 1-4.3 3.6Zm1.8-5.6a16.5 16.5 0 0 0 0-4h3.4a8.2 8.2 0 0 1 0 4h-3.4Z"/></svg>
+      <select id="lang"></select>
+    </label>
+    <button class="icon-btn" id="close" data-i18n-title="close" aria-label="Close">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.4 5 12 10.6 17.6 5 19 6.4 13.4 12l5.6 5.6-1.4 1.4-5.6-5.6L6.4 19 5 17.6 10.6 12 5 6.4 6.4 5Z"/></svg>
+    </button>
+  </header>
+
+  <main class="body">
+    <section class="info">
+      <div class="info-row"><span class="k" data-i18n="domain"></span><span class="v" id="domain">—</span></div>
+      <div class="info-row"><span class="k" data-i18n="page"></span><span class="v" id="page">—</span></div>
+    </section>
+
+    <section class="detect card">
+      <span class="dot" id="detectDot"></span>
+      <span id="detectText" class="detect-text"></span>
+      <button class="link-btn" id="rescan" data-i18n="rescan"></button>
+    </section>
+
+    <section class="links">
+      <div class="section-head">
+        <h2><span data-i18n="myLinks"></span><span class="tip" data-i18n-title="myLinksTip">?</span></h2>
+        <span class="selected-pill" id="selectedPill"></span>
+      </div>
+      <div class="cards" id="cards"></div>
+      <div class="empty" id="emptyLinks" hidden>
+        <p data-i18n="noLinks"></p>
+        <button class="btn outline small" id="addFirst" data-i18n="addLink"></button>
+      </div>
+    </section>
+
+    <section class="preview card" id="previewBox" hidden>
+      <button class="preview-toggle" id="previewToggle">
+        <span data-i18n="preview"></span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5H7Z"/></svg>
+      </button>
+      <dl class="preview-list" id="previewList" hidden></dl>
+    </section>
+
+    <section class="result card" id="resultBox" hidden>
+      <div class="result-head" id="resultHead"></div>
+      <ul class="result-list" id="resultList"></ul>
+    </section>
+
+    <section class="submitted" id="submittedBox" hidden>
+      <label class="check">
+        <input type="checkbox" id="submitted">
+        <span id="submittedText"></span>
+      </label>
+    </section>
+  </main>
+
+  <section class="actions">
+    <label class="switch">
+      <input type="checkbox" id="overwrite">
+      <span class="track"></span>
+      <span data-i18n="overwrite"></span>
+    </label>
+    <div class="btn-row">
+      <button class="btn outline" id="clear" data-i18n="clear"></button>
+      <button class="btn primary" id="autofill" data-i18n="autofill"></button>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <button class="foot-btn" id="manage">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.4 13a7.7 7.7 0 0 0 0-2l2.1-1.6-2-3.4-2.5 1a7.4 7.4 0 0 0-1.7-1L15 3h-4l-.4 2.6c-.6.3-1.2.6-1.7 1l-2.5-1-2 3.4L6.6 11a7.7 7.7 0 0 0 0 2l-2.1 1.6 2 3.4 2.5-1c.5.4 1.1.7 1.7 1L11 21h4l.4-2.6c.6-.3 1.2-.6 1.7-1l2.5 1 2-3.4-2.2-1.6ZM13 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Z" transform="translate(-1 0)"/></svg>
+      <span data-i18n="manage"></span>
+    </button>
+    <button class="foot-link" id="addLink" data-i18n="addLink"></button>
+  </footer>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="i18n.js"></script>
+  <script src="store.js"></script>
+  <script src="panel.js"></script>
+</body>
+</html>

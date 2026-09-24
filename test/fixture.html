@@ -1,0 +1,25 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Submit your AI tool</title></head>
+<body style="font-family:sans-serif;max-width:640px;margin:30px auto">
+<h1>Submit your AI tool</h1>
+<form id="f">
+  <label>Your name <input name="submitter_name" autocomplete="name"></label><br>
+  <label for="tn">Tool Name</label><input id="tn" name="toolName"><br>
+  <label>Website URL <input name="website"></label><br>
+  <label>Contact Email <input type="email" name="contact"></label><br>
+  <label>Short description <input name="short_desc" maxlength="40"></label><br>
+  <div class="field"><div class="field-label">Tell us about your product</div><textarea name="q1"></textarea></div>
+  <label>Key Features <textarea name="features"></textarea></label><br>
+  <label>Use cases <textarea name="usecases"></textarea></label><br>
+  <label>Category <select name="category"><option value="">Choose</option><option>Image</option><option value="vid">AI Video</option><option>Writing</option></select></label><br>
+  <label>Tags <input name="tags"></label><br>
+  <label>Twitter <input name="twitter"></label><br>
+  <div class="upload">Upload logo <input type="file" name="logo" accept="image/*" style="display:none"></div>
+  <div class="upload">Screenshot <input type="file" name="screenshot" accept="image/*" style="display:none"></div>
+  <div role="listitem"><div role="heading">产品标签</div><input aria-labelledby="none" name="x9"></div>
+  <label><input type="checkbox" value="productivity"> Productivity</label>
+  <label><input type="checkbox" value="terms"> I agree to the terms</label>
+  <div contenteditable="true" aria-label="Long description" style="border:1px solid #ccc;min-height:40px"></div>
+  <button>Submit</button>
+</form>
+</body></html>

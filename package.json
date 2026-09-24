@@ -1,0 +1,15 @@
+{
+  "name": "autosubmit-extension",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Browser extension that detects submission forms on AI directory sites and autofills them with your product info.",
+  "license": "MIT",
+  "scripts": {
+    "icons": "node scripts/render-icons.js",
+    "test": "node test/e2e.js",
+    "zip": "zip -r autosubmit.zip manifest.json src icons -x 'icons/*.svg~'"
+  },
+  "devDependencies": {
+    "playwright": "^1.56.0"
+  }
+}

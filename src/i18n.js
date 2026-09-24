@@ -1,0 +1,152 @@
+// Minimal two-language dictionary shared by the panel and the manage page.
+const I18N = (() => {
+  const dict = {
+    en: {
+      appName: 'AutoSubmit',
+      domain: 'Domain',
+      page: 'Page',
+      formsDetected: '{forms} forms · {fields} fields detected',
+      noForms: 'No form fields detected',
+      rescan: 'Rescan',
+      myLinks: 'My Links',
+      myLinksTip: 'Products you added in Manage. Pick one to autofill.',
+      selected: 'Selected',
+      none: 'None',
+      noLinks: 'No links yet. Add your first product in Manage.',
+      addLink: 'Add Link',
+      preview: 'Preview',
+      overwrite: 'Overwrite filled fields',
+      autofill: 'Autofill',
+      clear: 'Clear',
+      filledResult: 'Filled {n} fields',
+      nothingFilled: 'No matching fields found on this page',
+      pickFirst: 'Select a link first',
+      markSubmitted: 'Mark as submitted',
+      submittedOn: 'Submitted on {date}',
+      undo: 'Undo',
+      manage: 'Manage',
+      close: 'Close',
+      linkManagement: 'Link Management',
+      exportLinks: 'Export Links',
+      importLinks: 'Import Links',
+      deleteSelected: 'Delete Selected',
+      logo: 'Logo',
+      heroImage: 'Hero Image',
+      name: 'Product Name',
+      url: 'Product URL',
+      email: 'Email',
+      tagline: 'Tagline',
+      description: 'Description',
+      useCases: 'Use Cases',
+      features: 'Key Features',
+      tags: 'Tags',
+      actions: 'Actions',
+      edit: 'Edit',
+      delete: 'Delete',
+      editLink: 'Edit Link',
+      save: 'Save',
+      cancel: 'Cancel',
+      upload: 'Upload',
+      remove: 'Remove',
+      required: 'Product name and URL are required',
+      invalidUrl: 'Please enter a valid URL (https://…)',
+      confirmDelete: 'Delete {n} link(s)? This cannot be undone.',
+      imported: 'Imported {n} link(s)',
+      importFailed: 'Import failed: invalid file',
+      exported: 'Exported {n} link(s)',
+      emptyTable: 'No links yet. Click “Add Link” to create one, or import a JSON file.',
+      phTagline: 'One sentence that sells your product',
+      phTags: 'Comma separated, e.g. AI Video, Productivity',
+      phUseCases: 'One per line',
+      phFeatures: 'One per line',
+      localOnly: 'All data is stored locally in your browser.',
+      submissions: 'Submitted',
+      imgTip: 'PNG / JPG / WebP, stored locally'
+    },
+    zh: {
+      appName: 'AutoSubmit',
+      domain: '域名',
+      page: '页面',
+      formsDetected: '检测到 {forms} 个表单 · {fields} 个字段',
+      noForms: '未检测到表单字段',
+      rescan: '重新检测',
+      myLinks: '我的链接',
+      myLinksTip: '在管理页添加的产品，选择一个用于自动填充。',
+      selected: '已选',
+      none: '无',
+      noLinks: '还没有链接，请先在管理页添加产品。',
+      addLink: '添加链接',
+      preview: '预览',
+      overwrite: '覆盖已填写的字段',
+      autofill: '自动填充',
+      clear: '清除',
+      filledResult: '已填充 {n} 个字段',
+      nothingFilled: '当前页面没有找到可匹配的字段',
+      pickFirst: '请先选择一个链接',
+      markSubmitted: '标记为已提交',
+      submittedOn: '已于 {date} 提交',
+      undo: '撤销',
+      manage: '管理',
+      close: '关闭',
+      linkManagement: '链接管理',
+      exportLinks: '导出链接',
+      importLinks: '导入链接',
+      deleteSelected: '删除所选',
+      logo: 'Logo',
+      heroImage: '主图',
+      name: '产品名称',
+      url: '产品 URL',
+      email: '邮箱',
+      tagline: '一句话介绍',
+      description: '产品描述',
+      useCases: '使用场景',
+      features: '核心功能',
+      tags: '标签',
+      actions: '操作',
+      edit: '编辑',
+      delete: '删除',
+      editLink: '编辑链接',
+      save: '保存',
+      cancel: '取消',
+      upload: '上传',
+      remove: '移除',
+      required: '产品名称和 URL 为必填项',
+      invalidUrl: '请输入有效的 URL（https://…）',
+      confirmDelete: '确定删除 {n} 个链接？此操作不可撤销。',
+      imported: '已导入 {n} 个链接',
+      importFailed: '导入失败：文件格式无效',
+      exported: '已导出 {n} 个链接',
+      emptyTable: '还没有链接。点击“添加链接”新建，或导入 JSON 文件。',
+      phTagline: '一句话说明你的产品',
+      phTags: '用逗号分隔，例如 AI Video, Productivity',
+      phUseCases: '每行一条',
+      phFeatures: '每行一条',
+      localOnly: '所有数据仅保存在本地浏览器中。',
+      submissions: '已提交',
+      imgTip: 'PNG / JPG / WebP，仅本地保存'
+    }
+  };
+
+  let lang = (navigator.language || 'en').toLowerCase().startsWith('zh') ? 'zh' : 'en';
+
+  function t(key, vars) {
+    let s = (dict[lang] && dict[lang][key]) || dict.en[key] || key;
+    if (vars) for (const k of Object.keys(vars)) s = s.replace(`{${k}}`, vars[k]);
+    return s;
+  }
+
+  function apply(root = document) {
+    root.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
+    root.querySelectorAll('[data-i18n-title]').forEach((el) => { el.title = t(el.dataset.i18nTitle); });
+    root.querySelectorAll('[data-i18n-ph]').forEach((el) => { el.placeholder = t(el.dataset.i18nPh); });
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+  }
+
+  return {
+    t,
+    apply,
+    get lang() { return lang; },
+    setLang(l) { if (dict[l]) lang = l; },
+    languages: [['en', 'English'], ['zh', '中文']]
+  };
+})();
