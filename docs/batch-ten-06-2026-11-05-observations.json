@@ -1,0 +1,321 @@
+[
+  {
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "queueDays": null,
+    "domain": "aitoolxplorer.com",
+    "status": "access-blocked",
+    "url": "https://aitoolxplorer.com/",
+    "reason": "本批内置浏览器仍返回ERR_SSL_PROTOCOL_ERROR，未绕过安全警告或改用不安全连接；免费与表单条件未确认。",
+    "analysisLevel": "live-entry-review",
+    "browserError": "ERR_SSL_PROTOCOL_ERROR"
+  },
+  {
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "queueDays": null,
+    "domain": "aigems.net",
+    "status": "no-public-entry-found",
+    "url": "https://aigems.net/",
+    "reason": "主页与完整导航/页脚均可见，只有分类、工具详情、社交和其他项目链接，没有投稿或联系表单；一次限定官网搜索也未找到投稿入口，不推断可提交。",
+    "analysisLevel": "live-entry-review",
+    "forms": [],
+    "searchQuery": "site:aigems.net \"submit\" \"tool\""
+  },
+  {
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "queueDays": null,
+    "domain": "superaitools.io",
+    "status": "blocked-product-pricing",
+    "url": "https://www.superaitools.io/submit-a-tool",
+    "reason": "主页延迟加载后找到Submit，另开投稿页；必填定价下拉只有Free/Freemium/Paid，没有Free Trial。未填写RTFV或提交；独立广告链接不是投稿收费依据。",
+    "analysisLevel": "live-page-flow",
+    "pricingOptions": [
+      "Free",
+      "Freemium",
+      "Paid"
+    ],
+    "proofImage": "docs/proofs/superaitools-no-free-trial.jpg",
+    "form": {
+      "declaredMethod": "GET",
+      "declaredAction": null,
+      "actualNetworkProtocol": "not-captured",
+      "requiredByVisibleAsterisk": [
+        "Your name",
+        "Business Email",
+        "Tool Name",
+        "Tool URL",
+        "Pricing Model",
+        "Tool Tags",
+        "Tool Description"
+      ],
+      "optional": [
+        "Message"
+      ],
+      "fields": {
+        "input[id=\"form1-Yourname-845622360\"]": "fullName",
+        "input[id=\"form1-Youremailaddress-1055599683\"]": "email",
+        "input[id=\"form1-ToolName-90177075\"]": "name",
+        "input[id=\"form1-ToolURL--689821497\"]": "url",
+        "div[role=button][id=\"form1-Pricingmodel--2090496945\"]": "productPricing",
+        "input[id=\"form1-ToolTags-90355649\"]": "tags",
+        "textarea[id=\"form1-ToolDescription-272962388\"]": "description"
+      },
+      "selectorCaution": "Pricing control and hidden native input share sameid; disambiguate by div[role=button]."
+    }
+  },
+  {
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "queueDays": null,
+    "domain": "aivalley.ai",
+    "status": "site-error",
+    "url": "https://aivalley.ai/submit-tool/",
+    "reason": "官方公开表单无收费、互链或协议勾选项。填真实联系资料及原描述，点击一次Submit，Contact Form7 data-status=failed，显示There was an error trying to send your message. Please try again later.。未重试、未记成功，等待站点修复；排期未知。",
+    "analysisLevel": "live-page-flow",
+    "proofImage": "docs/proofs/aivalley-send-error.jpg",
+    "form": {
+      "declaredMethod": "POST",
+      "declaredAction": "/submit-tool/#wpcf7-f2086-p2088-o1",
+      "actualNetworkProtocol": "not-captured",
+      "required": [
+        "your-name",
+        "your-email",
+        "ToolName",
+        "ToolURL"
+      ],
+      "optional": [
+        "Tool Description (optional)",
+        "Tool Short Description (optional)"
+      ],
+      "duplicateFieldName": "your-message",
+      "duplicateFieldRule": "Map each textarea by its closest visible label, not name or first matching element",
+      "finalButton": "input[type=submit]",
+      "nativeErrorStatus": "failed"
+    },
+    "submission": {
+      "status": "failed-explicit",
+      "message": "There was an error trying to send your message. Please try again later.",
+      "date": "2026-11-05",
+      "proofImage": "docs/proofs/aivalley-send-error.jpg"
+    }
+  },
+  {
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "queueDays": null,
+    "domain": "aisupersmart.com",
+    "status": "site-error",
+    "url": "https://www.aisupersmart.com/cgi-sys/suspendedpage.cgi",
+    "requestedUrl": "https://www.aisupersmart.com/submit-tool/",
+    "reason": "真实投稿网址重定向主机Account Suspended页面；不把主机暂停推断为永久关站，保留故障待恢复。",
+    "analysisLevel": "live-entry-review",
+    "observedText": "This Account has been suspended. Contact your web hosting provider for more information."
+  },
+  {
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "queueDays": null,
+    "domain": "toolpilot.ai",
+    "status": "excluded-backlink",
+    "url": "https://www.toolpilot.ai/pages/submit-your-ai-tool",
+    "reason": "官方投稿页Important Update on Free Listings明确：免费listing必须添加回链/徽章并提交放置网址或邮件确认；不符合无强制互链条件，未填表或提交。",
+    "analysisLevel": "live-page-flow",
+    "proofImage": "docs/proofs/toolpilot-backlink-required.jpg",
+    "mandatoryReciprocal": true,
+    "source": "Official submit page, Important Update on Free Listings",
+    "observedRequirement": "A link back to our site is now mandatory for all free listings.",
+    "iframeId": "231772738321053",
+    "paidPathNotUsed": true
+  },
+  {
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "queueDays": null,
+    "domain": "genai.works",
+    "status": "blocked-product-pricing",
+    "url": "https://genai.works/account/applications/add",
+    "reason": "用户完成公司账号注册，成功页提示验证邮件待确认；Gmail含垃圾箱两次站点相关检索未找到邮件，但通过页面Go to website已可进入后台，点击Fill manually取得完整产品表单。必填Pricing model只有Free/Paid，没有Free Trial；未填产品、未Publish、未勾投稿协议或版权声明。免费账号不等于免费投稿已核实，排期未知。",
+    "analysisLevel": "live-page-flow",
+    "accountCreatedByUser": true,
+    "emailVerified": false,
+    "subscriptionsDisabled": [
+      "subscribe_daily_newsletter",
+      "subscribe_academy_newsletter"
+    ],
+    "privacyUrl": "https://genai.works/privacy-policy",
+    "referenceGuides": [
+      "https://help.genai.works/en/articles/10315589-how-to-add-a-product",
+      "https://help.genai.works/en/articles/10364165-top-startups-guide-for-companies"
+    ],
+    "passwordRecorded": false,
+    "tokenRecorded": false,
+    "proofImage": "docs/proofs/genai-no-free-trial.jpg",
+    "authenticatedDashboardObserved": true,
+    "pricingOptions": [
+      "Free",
+      "Paid"
+    ],
+    "form": {
+      "steps": [
+        "Successful company registration",
+        "Go to website -> /account/applications/autofill",
+        "Fill manually -> /account/applications/add",
+        "Publish (not clicked)",
+        "Posting guidelines checkbox + Submit (not reached)"
+      ],
+      "fields": {
+        "input[name=title]": "name",
+        "textarea[name=description]": "description",
+        "textarea[name=\"useful_for.0.text\"]": "useful for, <=20words",
+        "textarea[name=\"key_features.0.text\"]": "features, <=20words",
+        "textarea[name=\"price_text.0.text\"]": "price explanation, <=20words",
+        "textarea[name=\"use_cases.0.text\"]": "use cases, <=20words",
+        "input[name=website]": "url"
+      },
+      "requiredByVisibleAsterisk": [
+        "Product logo",
+        "Product name",
+        "About product",
+        "Useful for",
+        "Key features",
+        "Price",
+        "Use cases",
+        "Industry",
+        "Category",
+        "Product site",
+        "Gallery",
+        "Pricing model",
+        "Available integration",
+        "Ideal for"
+      ],
+      "media": "PNG/JPG <=5MB; gallery1800x1020 recommended",
+      "industries": [
+        "Business",
+        "Coding",
+        "Creativity",
+        "Design",
+        "E-commerce",
+        "Education",
+        "Entertainment",
+        "Finance",
+        "Healthcare",
+        "HR",
+        "Lifestyle",
+        "Marketing",
+        "Productivity",
+        "Programming",
+        "Project Management",
+        "Real Estate",
+        "Sales",
+        "Social Media Management"
+      ],
+      "categories": [
+        "AI Chatbots",
+        "Automation",
+        "Coding",
+        "Customer Service",
+        "Data",
+        "Email",
+        "Images",
+        "Meetings",
+        "Prompts",
+        "Research",
+        "SEO-Optimization",
+        "Translation",
+        "Video",
+        "Voice over",
+        "Website",
+        "Writing"
+      ],
+      "integrationOptions": [
+        "None",
+        "API"
+      ],
+      "skipClaimsAndMarketing": [
+        "interested_in_paid_sponsorship",
+        "interested_in_affiliate",
+        "copyright ownership claim",
+        "unknown social URLs"
+      ],
+      "pricingOptions": [
+        "Free",
+        "Paid"
+      ],
+      "finalButtons": [
+        "Publish",
+        "Submit"
+      ],
+      "guidelinesUrl": "https://genai.works/posting-guidelines",
+      "actualNetworkProtocol": "not-captured",
+      "productFieldsFilled": false,
+      "finalSubmitted": false
+    }
+  },
+  {
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "queueDays": null,
+    "domain": "devhunt.org",
+    "status": "excluded-ineligible",
+    "url": "https://devhunt.org/faq",
+    "reason": "官方FAQ明确只接受面向开发者的工具，非开发者工具不被接收。RTFV目前提供的是面向视频创作者的在线去字服务，没有用户提供的开发者API/SDK等定位，不虚构资格。免费普通listing为nofollow；49美元Launch另外付费，未登录或投稿。",
+    "analysisLevel": "live-page-flow",
+    "proofImage": "docs/proofs/devhunt-developer-only.jpg",
+    "eligibility": "Developer tools only; non-developer tools are not accepted",
+    "freeEvidence": "Listing a tool is free: permanent page with nofollow link",
+    "paidOptional": "Launch costs $49; not selected",
+    "loginMethods": [
+      "GitHub",
+      "Google"
+    ]
+  },
+  {
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "queueDays": null,
+    "domain": "alternativeto.net",
+    "status": "blocked-registration-captcha",
+    "url": "https://alternativeto.net/",
+    "reason": "菜单Suggest new application要求登录；注册支持普通邮箱，rtfv用户名与support邮箱已填，随后出现hCaptcha。按用户之前要求跳过验证码，未输入新密码或创建账号；页面已关闭。",
+    "analysisLevel": "live-page-flow",
+    "proofImage": "docs/proofs/alternativeto-registration-handoff.jpg",
+    "termsUrl": "https://alternativeto.net/about/terms/",
+    "privacyUrl": "https://alternativeto.net/about/privacy/",
+    "form": {
+      "steps": [
+        "Open page menu",
+        "Suggest new application (sign in required)",
+        "Sign In dialog",
+        "Create an account"
+      ],
+      "fields": [
+        "Username",
+        "Email",
+        "Password"
+      ],
+      "challenge": "hCaptcha",
+      "button": "Create account"
+    },
+    "passwordRecorded": false
+  },
+  {
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "queueDays": null,
+    "domain": "saaswheel.com",
+    "status": "user-skipped",
+    "url": "https://saaswheel.com/signup",
+    "reason": "登录和注册都只有Google，没有普通邮箱密码入口。用户明确先跳过，不使用当前个人Google账号；最终免费/互链/排期条件未核实，不新增占位适配。",
+    "analysisLevel": "live-page-flow",
+    "proofImage": "docs/proofs/saaswheel-google-only.jpg",
+    "loginMethods": [
+      "Google"
+    ],
+    "loginUrl": "https://saaswheel.com/get-started",
+    "termsUrl": "https://saaswheel.com/terms",
+    "privacyUrl": "https://saaswheel.com/privacy",
+    "userChoseSkip": true
+  }
+]

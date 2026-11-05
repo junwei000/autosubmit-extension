@@ -1,0 +1,12 @@
+[
+  {"domain":"ereznft.com","status":"access-blocked","analysisLevel":"blocked","url":"https://ereznft.com/","reason":"重新访问仍是TLS握手被对端提前关闭。内置浏览器停在连接错误页，未改用不安全连接。"},
+  {"domain":"findmyaitools.com","status":"access-blocked","analysisLevel":"blocked","url":"https://findmyaitools.com/","reason":"重新访问仍是TLS握手被对端提前关闭。内置浏览器停在连接错误页，未改用不安全连接。"},
+  {"domain":"form.buzzmatic.net","status":"site-error","analysisLevel":"live-entry-review","url":"https://www.zoho.com/survey/","reason":"原表单域名现在跳到Zoho Survey产品首页，不是一份具体问卷。未注册Zoho，未提交。"},
+  {"domain":"forumforyou.it","status":"excluded-reciprocal-required","analysisLevel":"live-page-flow","url":"https://www.forumforyou.it/Segnalaci_Il_tuo_sito.asp","reason":"投稿表单已加载。免费档默认选中，但页面写明小横幅只对免费投稿是必须的；5欧元和10欧元档不要求横幅。未填写、未付款、未放置横幅。"},
+  {"domain":"free-ai-tools-directory.com","status":"waiting-captcha","analysisLevel":"live-page-flow","url":"https://free-ai-tools-directory.com/submit-request/","reason":"投稿页是Gravity Form：工具名、网址、介绍、短说明，图片可选。没有收费或互链字段。可见reCAPTCHA未代答，插件填表后暂停，未点击Submit。"},
+  {"domain":"futurepard.com","status":"access-blocked","analysisLevel":"blocked","url":"https://futurepard.com/","reason":"重新访问仍是TLS握手被对端提前关闭。内置浏览器停在连接错误页，未改用不安全连接。"},
+  {"domain":"gooddesign.tools","status":"access-blocked","analysisLevel":"blocked","url":"https://gooddesign.tools/","reason":"TLS握手失败（handshake failure）。内置浏览器停在连接错误页，未绕过安全警告。"},
+  {"domain":"gpt3demo.com","status":"needs-free-verification","analysisLevel":"live-page-flow","url":"https://gpt3demo.com/partner/request","reason":"首页可打开。Request app是找不到工具时的请求。要被收录需走合作表，交给合作团队，必填隐私政策网址和条款网址。页面没有写明免费或费用。未填写、未提交。"},
+  {"domain":"gptforge.net","status":"access-blocked","analysisLevel":"blocked","url":"https://gptforge.net/","reason":"重新访问仍是TLS握手被对端提前关闭。内置浏览器停在连接错误页，未改用不安全连接。"},
+  {"domain":"grootaihub.com","status":"access-blocked","analysisLevel":"blocked","url":"https://grootaihub.com/","reason":"重新访问仍是TLS握手被对端提前关闭。内置浏览器停在连接错误页，未改用不安全连接。"}
+]

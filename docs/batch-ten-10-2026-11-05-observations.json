@@ -1,0 +1,72 @@
+[
+  {
+    "domain": "alayaai.site",
+    "status": "access-blocked",
+    "analysisLevel": "blocked",
+    "url": "https://alayaai.site/",
+    "reason": "重新访问仍是TLS握手被对端提前关闭。内置浏览器停在连接错误页，未改用不安全连接。"
+  },
+  {
+    "domain": "alles-ki.com",
+    "status": "site-error",
+    "analysisLevel": "live-entry-review",
+    "url": "https://alles-ki.com/",
+    "reason": "仍是404。页面显示Not Found，The train has not arrived at the station，域名尚未在Railway完成配置。没有投稿表单。"
+  },
+  {
+    "domain": "allthingsai.com",
+    "status": "access-blocked",
+    "analysisLevel": "blocked",
+    "url": "https://allthingsai.com/",
+    "reason": "重新访问仍是TLS握手被对端提前关闭。内置浏览器停在连接错误页，未改用不安全连接。"
+  },
+  {
+    "domain": "bestofai.com",
+    "status": "site-error",
+    "analysisLevel": "live-entry-review",
+    "url": "https://bestofai.com/tool/add",
+    "reason": "未登录打开/tool/add现在是401 You must be logged in。上次已登录后是404 User not found。本次没有再次登录或注册，仍未取得投稿表单。"
+  },
+  {
+    "domain": "betteraitools.com",
+    "status": "excluded-parked",
+    "analysisLevel": "live-entry-review",
+    "url": "https://www.hugedomains.com/domain_profile.cfm?d=betteraitools.com",
+    "reason": "首页跳到HugeDomains出售页，标价8795美元或每月366.46美元。没有目录投稿表单，未购买。"
+  },
+  {
+    "domain": "code.market",
+    "status": "needs-free-verification",
+    "analysisLevel": "live-page-flow",
+    "url": "https://code.market/newsletter/submit",
+    "reason": "Cloudflare通过后，摘要投稿页要求网址、最多5个词的名称、最多15个词的说明和项目类型。表单没有收费或互链控件。首页另有9美元周排名，没有点击。插件填入现有简介并选择SaaS，提交前暂停。"
+  },
+  {
+    "domain": "dailybaileyai.com",
+    "status": "access-blocked",
+    "analysisLevel": "blocked",
+    "url": "https://dailybaileyai.com/",
+    "reason": "TLS握手超时，内置浏览器停在连接错误页。未取得投稿表单。"
+  },
+  {
+    "domain": "deepdhai.com",
+    "status": "site-error",
+    "analysisLevel": "blocked",
+    "url": "https://deepdhai.com/",
+    "reason": "WordPress无法连接Redis，页面停在Error establishing a Redis connection。未取得投稿表单。"
+  },
+  {
+    "domain": "dir2ai.com",
+    "status": "excluded-backlink",
+    "analysisLevel": "live-entry-review",
+    "url": "https://www.dir2ai.com/pricing",
+    "reason": "定价页没有免费方案。单次提交10美元，月费从25美元起，付费方案写明No backlink required。提交页的免费Community Listing要求向dir2ai.com放置已验证反向链接。未填写网址，未购买，未加互链。"
+  },
+  {
+    "domain": "discovertheai.com",
+    "status": "site-error",
+    "analysisLevel": "live-entry-review",
+    "url": "https://discovertheai.com/contact/",
+    "reason": "首页可打开，Submit your tool指向/contact/，Login指向/login-real/，两者都是403。首页还混有赌博锚文本。未填写、未提交。"
+  }
+]

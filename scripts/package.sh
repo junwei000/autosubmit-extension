@@ -25,5 +25,5 @@ node -e '
 for f in src/*.js; do node --check "$f"; done
 
 rm -rf dist && mkdir -p dist
-zip -qr "$out" manifest.json src icons LICENSE README.md -x '*.DS_Store'
+zip -qr "$out" manifest.json src icons LICENSE README.md docs/supported-sites.md docs/supported-sites.json -x '*.DS_Store'
 echo "$out"

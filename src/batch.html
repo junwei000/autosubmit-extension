@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AutoSubmit · Batch Submit</title>
+  <link rel="icon" href="../icons/icon32.png">
+  <link rel="stylesheet" href="manage.css">
+  <link rel="stylesheet" href="batch.css">
+</head>
+<body>
+  <aside class="side">
+    <div class="side-brand">
+      <img src="../icons/logo.svg" alt="">
+      <span>AutoSubmit</span>
+      <select id="lang" class="lang" aria-label="Language"></select>
+    </div>
+    <nav>
+      <a class="nav-item" href="manage.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.6 13.4a1 1 0 0 1 0-1.4l3.5-3.5a1 1 0 1 1 1.4 1.4L12 13.4a1 1 0 0 1-1.4 0Zm-2.1 6.4a4.5 4.5 0 0 1-3.2-7.7l2.1-2.1a1 1 0 0 1 1.4 1.4l-2.1 2.1a2.5 2.5 0 0 0 3.5 3.5l2.1-2.1a1 1 0 0 1 1.4 1.4l-2.1 2.1a4.5 4.5 0 0 1-3.1 1.4Zm7-5.3a1 1 0 0 1-.7-1.7l2.1-2.1a2.5 2.5 0 0 0-3.5-3.5l-2.1 2.1a1 1 0 1 1-1.4-1.4L12 5.8a4.5 4.5 0 0 1 6.4 6.4l-2.1 2.1a1 1 0 0 1-.8.2Z"/></svg>
+        <span data-i18n="linkManagement"></span>
+      </a>
+      <a class="nav-item active" href="batch.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 21 23 12 2 3v7l15 2-15 2v7Z"/></svg>
+        <span data-i18n="batchSubmit"></span>
+      </a>
+    </nav>
+    <p class="side-note" data-i18n="localOnly"></p>
+  </aside>
+
+  <main class="main">
+    <div class="panel stack">
+      <div class="toolbar">
+        <h1 data-i18n="batchSubmit"></h1>
+      </div>
+      <p class="intro" data-i18n="batchIntro"></p>
+
+      <section class="box">
+        <h2 data-i18n="product"></h2>
+        <div class="grid2">
+          <label class="fld"><span data-i18n="product"></span><select id="product"></select></label>
+          <div class="product-card" id="productCard"></div>
+        </div>
+        <p class="hint warn" id="productMissing" hidden></p>
+        <p class="hint" id="noProducts" hidden><span data-i18n="noProducts"></span> <a href="manage.html" data-i18n="addLink"></a></p>
+      </section>
+
+      <section class="box">
+        <h2><span data-i18n="submitter"></span> <span class="tip" data-i18n-title="submitterTip">?</span></h2>
+        <div class="grid4">
+          <label class="fld"><span data-i18n="firstName"></span><input id="firstName" autocomplete="off"></label>
+          <label class="fld"><span data-i18n="lastName"></span><input id="lastName" autocomplete="off"></label>
+          <label class="fld"><span data-i18n="accountEmail"></span><input id="email" type="email" autocomplete="off" data-i18n-ph="accountEmailPh"></label>
+          <label class="fld"><span data-i18n="password"></span><input id="password" type="password" autocomplete="new-password" data-i18n-ph="passwordPh"></label>
+        </div>
+        <div class="opts">
+          <label class="check"><input type="checkbox" id="autoSubmit"> <span data-i18n="autoSubmitOpt"></span></label>
+          <label class="check"><input type="checkbox" id="autoAgree"> <span data-i18n="autoAgreeOpt"></span></label>
+          <label class="check"><input type="checkbox" id="googleAuto"> <span data-i18n="googleAutoOpt"></span></label>
+        </div>
+      </section>
+
+      <section class="box">
+        <h2 data-i18n="sites"></h2>
+        <div class="table-wrap">
+          <table class="sites">
+            <thead>
+              <tr>
+                <th class="c-check"><input type="checkbox" id="all" aria-label="Select all"></th>
+                <th class="left" data-i18n="sites"></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="sites"></tbody>
+          </table>
+        </div>
+        <div class="actions">
+          <button class="mbtn contained" id="start" data-i18n="start"></button>
+          <button class="mbtn outlined" id="stop" data-i18n="stop"></button>
+          <span class="msg" id="msg"></span>
+        </div>
+      </section>
+
+      <section class="box" id="resultCard" hidden>
+        <div class="result-head">
+          <h2 data-i18n="results"></h2>
+          <button class="mbtn outlined sm" id="csv" data-i18n="exportCsv"></button>
+        </div>
+        <div class="summary" id="summary"></div>
+        <div class="table-wrap">
+          <table class="results">
+            <tbody id="results"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="i18n.js"></script>
+  <script src="store.js"></script>
+  <script src="sites.js"></script>
+  <script src="batch.js"></script>
+</body>
+</html>

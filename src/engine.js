@@ -1,156 +1,10 @@
-// AutoSubmit content script: floating launcher, panel host, and the form detection / autofill engine.
+// AutoSubmit form engine: finds the fields of a submission form, works out what each one asks for and fills it.
+// Used by runner.js (batch submission) in the same content-script world.
 (() => {
   if (window.top !== window || window.__autosubmitLoaded) return;
   window.__autosubmitLoaded = true;
 
-  const PANEL_URL = chrome.runtime.getURL('src/panel.html');
-  const EXT_ORIGIN = new URL(PANEL_URL).origin;
   const HIGHLIGHT_ATTR = 'data-autosubmit-filled';
-
-  // ---------------------------------------------------------------------------
-  // Launcher button + panel iframe (inside a closed shadow root so page CSS can't touch it)
-  // ---------------------------------------------------------------------------
-  const host = document.createElement('autosubmit-root');
-  host.style.cssText = 'all: initial; position: fixed; z-index: 2147483647; top: 0; left: 0; width: 0; height: 0;';
-  const shadow = host.attachShadow({ mode: 'closed' });
-
-  shadow.innerHTML = `
-    <style>
-      .launcher {
-        position: fixed; right: -14px; width: 46px; height: 46px; border-radius: 50%;
-        cursor: pointer; user-select: none; touch-action: none;
-        box-shadow: 0 2px 10px rgba(0,0,0,.25); transition: right .18s ease, transform .18s ease;
-        background: transparent; border: 0; padding: 0; outline: none;
-      }
-      .launcher:hover, .launcher.open, .launcher.dragging { right: 6px; }
-      .launcher:active { transform: scale(.96); }
-      .launcher img { width: 46px; height: 46px; display: block; pointer-events: none; border-radius: 50%; }
-      .badge {
-        position: absolute; top: -3px; left: -3px; min-width: 16px; height: 16px; padding: 0 4px;
-        border-radius: 8px; background: #d97706; color: #fff; font: 600 10px/16px system-ui, sans-serif;
-        text-align: center; box-sizing: border-box; display: none;
-      }
-      .panel {
-        position: fixed; right: 12px; top: 12vh; width: 300px; height: 76vh; min-height: 520px; max-height: calc(100vh - 24px);
-        border: 0; border-radius: 14px; box-shadow: 0 12px 40px rgba(0,0,0,.28); background: #fff;
-        display: none; color-scheme: normal;
-      }
-      .panel.open { display: block; }
-      @media (max-height: 560px) { .panel { top: 12px; min-height: 0; height: calc(100vh - 24px); } }
-    </style>
-    <button class="launcher" title="AutoSubmit" aria-label="AutoSubmit">
-      <img alt="" src="${chrome.runtime.getURL('icons/logo.svg')}">
-      <span class="badge"></span>
-    </button>
-    <iframe class="panel" title="AutoSubmit" allow="clipboard-write"></iframe>
-  `;
-  const launcher = shadow.querySelector('.launcher');
-  const badge = shadow.querySelector('.badge');
-  const frame = shadow.querySelector('.panel');
-  (document.body || document.documentElement).appendChild(host);
-
-  let port = null; // MessagePort to the panel
-  let panelOpen = false;
-
-  chrome.storage.local.get('settings', ({ settings }) => {
-    const top = settings && typeof settings.buttonTop === 'number' ? settings.buttonTop : 62;
-    launcher.style.top = `clamp(8px, ${top}vh, calc(100vh - 54px))`;
-  });
-
-  function openPanel() {
-    if (!frame.src) {
-      frame.addEventListener('load', connectPanel, { once: true });
-      frame.src = PANEL_URL;
-    } else {
-      send({ type: 'pageInfo', ...pageInfo() });
-      send(detectSummary());
-    }
-    frame.classList.add('open');
-    launcher.classList.add('open');
-    panelOpen = true;
-  }
-  function closePanel() {
-    frame.classList.remove('open');
-    launcher.classList.remove('open');
-    panelOpen = false;
-  }
-  const togglePanel = () => (panelOpen ? closePanel() : openPanel());
-
-  function connectPanel() {
-    const channel = new MessageChannel();
-    port = channel.port1;
-    port.onmessage = (e) => handlePanelMessage(e.data || {});
-    frame.contentWindow.postMessage({ type: 'autosubmit:init' }, EXT_ORIGIN, [channel.port2]);
-  }
-  const send = (msg) => port && port.postMessage(msg);
-
-  // Drag vertically, click to toggle.
-  let drag = null;
-  launcher.addEventListener('pointerdown', (e) => {
-    drag = { y: e.clientY, startTop: launcher.getBoundingClientRect().top, moved: false };
-    launcher.setPointerCapture(e.pointerId);
-  });
-  launcher.addEventListener('pointermove', (e) => {
-    if (!drag) return;
-    const dy = e.clientY - drag.y;
-    if (Math.abs(dy) > 4) drag.moved = true;
-    if (!drag.moved) return;
-    launcher.classList.add('dragging');
-    const top = Math.min(Math.max(8, drag.startTop + dy), window.innerHeight - 54);
-    launcher.style.top = `${top}px`;
-  });
-  launcher.addEventListener('pointerup', () => {
-    if (!drag) return;
-    const { moved } = drag;
-    drag = null;
-    launcher.classList.remove('dragging');
-    if (moved) {
-      const vh = (launcher.getBoundingClientRect().top / window.innerHeight) * 100;
-      chrome.storage.local.get('settings', ({ settings }) => {
-        chrome.storage.local.set({ settings: { ...(settings || {}), buttonTop: Math.round(vh * 10) / 10 } });
-      });
-    } else {
-      togglePanel();
-    }
-  });
-
-  chrome.runtime.onMessage.addListener((msg) => {
-    if (msg && msg.type === 'autosubmit:toggle') togglePanel();
-  });
-
-  // ---------------------------------------------------------------------------
-  // Panel protocol
-  // ---------------------------------------------------------------------------
-  async function handlePanelMessage(msg) {
-    switch (msg.type) {
-      case 'ready':
-        send({ type: 'pageInfo', ...pageInfo() });
-        send(detectSummary());
-        break;
-      case 'detect':
-        send(detectSummary());
-        break;
-      case 'autofill': {
-        const { products = [] } = await chrome.storage.local.get('products');
-        const product = products.find((p) => p.id === msg.productId);
-        if (!product) return send({ type: 'fillResult', error: 'notFound', filled: [] });
-        const filled = autofill(product, { overwrite: !!msg.overwrite });
-        send({ type: 'fillResult', filled });
-        break;
-      }
-      case 'clear':
-        clearHighlights();
-        break;
-      case 'close':
-        closePanel();
-        break;
-      case 'openManage':
-        chrome.runtime.sendMessage({ type: 'autosubmit:openManage' });
-        break;
-    }
-  }
-
-  const pageInfo = () => ({ domain: location.hostname.replace(/^www\./, ''), title: document.title, url: location.href });
 
   // ---------------------------------------------------------------------------
   // Field discovery
@@ -158,16 +12,17 @@
   const SKIP_INPUT_TYPES = new Set(['hidden', 'submit', 'button', 'reset', 'image', 'password', 'search', 'range', 'color', 'date', 'datetime-local', 'month', 'week', 'time', 'number']);
 
   function isVisible(el) {
-    if (host.contains(el)) return false;
     const style = getComputedStyle(el);
     if (style.visibility === 'hidden' || style.display === 'none') return false;
     const r = el.getBoundingClientRect();
+    // Honeypots are often parked off the page (left: -9999px) instead of hidden.
+    if (r.right + scrollX <= 0 || r.bottom + scrollY <= 0) return false;
     return r.width > 0 && r.height > 0;
   }
 
-  function collectFields() {
+  function collectFields(root = document) {
     const out = [];
-    const els = document.querySelectorAll('input, textarea, select, [contenteditable="true"], [contenteditable=""], [role="textbox"]');
+    const els = root.querySelectorAll('input, textarea, select, [contenteditable="true"], [contenteditable=""], [role="textbox"]');
     for (const el of els) {
       if (el.disabled || el.readOnly || el.getAttribute('aria-disabled') === 'true') continue;
       const tag = el.tagName;
@@ -186,23 +41,12 @@
         kind = 'rich';
       }
       // Upload widgets usually hide the real <input type=file>, so it's exempt from the visibility check.
-      if (kind === 'file') {
-        if (host.contains(el)) continue;
-      } else if (kind === 'check') {
+      if (kind === 'check') {
         if (!isVisible(el) && !(el.labels && [...el.labels].some(isVisible))) continue;
-      } else if (!isVisible(el)) continue;
+      } else if (kind !== 'file' && !isVisible(el)) continue;
       out.push({ el, kind });
     }
     return out;
-  }
-
-  function detectSummary() {
-    const fields = collectFields().filter((f) => f.kind !== 'check');
-    const forms = new Set(fields.map((f) => f.el.closest('form')).filter(Boolean));
-    const count = fields.length;
-    badge.textContent = count > 99 ? '99+' : String(count);
-    badge.style.display = count ? 'block' : 'none';
-    return { type: 'detectResult', forms: forms.size || (count ? 1 : 0), fields: count };
   }
 
   // ---------------------------------------------------------------------------
@@ -231,7 +75,7 @@
       if (node === document.body) break;
       const candidates = [...node.querySelectorAll(LABELISH)].reverse();
       for (const c of candidates) {
-        if (c.contains(el) || host.contains(c)) continue;
+        if (c.contains(el)) continue;
         // Nearest label-ish text that precedes the field.
         if (!(c.compareDocumentPosition(el) & Node.DOCUMENT_POSITION_FOLLOWING)) continue;
         const txt = c.textContent.trim();
@@ -270,7 +114,12 @@
   // Classification rules (order matters: specific before generic)
   // ---------------------------------------------------------------------------
   const RX = {
-    notOurs: /\b(first|last|full|given|family|sur)\s?name\b|\byour name\b|\bcontact name\b|\bauthor\b|\bmaker name\b|\bfounder\b|\bphone\b|\btelephone\b|\bpassword\b|\bcoupon\b|\bpromo\b|\bcaptcha\b|\bsearch\b|\btwitter\b|\bx\.com\b|\blinkedin\b|\bfacebook\b|\binstagram\b|\byoutube\b|\bgithub\b|\bdiscord\b|\btiktok\b|\bpricing\b|\bprice\b|\baffiliate\b|\bnewsletter\b|姓名|电话|手机|密码|验证码/,
+    // Personal names: skipped, unless a batch run supplies the submitter.
+    person: /\b(first|last|full|given|family|sur)\s?name\b|\byour name\b|\bcontact name\b|\bauthor\b|\bmaker name\b|\bfounder\b|姓名/,
+    firstName: /\b(first|given)\s?name\b/,
+    lastName: /\b(last|family|sur)\s?name\b/,
+    notOurs: /\bphone\b|\btelephone\b|\bpassword\b|\bcoupon\b|\bpromo\b|\bcaptcha\b|\bsearch\b|\btwitter\b|\bx\.com\b|\blinkedin\b|\bfacebook\b|\binstagram\b|\byoutube\b|\bgithub\b|\bdiscord\b|\btiktok\b|product\s?hunt|messenger|\bskype\b|whatsapp|telegram|wechat|\bfax\b|\bpricing\b|\bprice\b|\baffiliate\b|\bnewsletter\b|\bdiscount\b|电话|手机|密码|验证码/,
+    pricing: /\bpricing\b|\bprice model\b|\bpricing model\b|\bplan type\b|收费|定价/,
     email: /e-?mail|邮箱|电子邮件/,
     logo: /\blogo\b|\bicon\b|\bfavicon\b|\bavatar\b|\bthumbnail\b|图标|头像/,
     hero: /screenshot|\bhero\b|\bcover\b|\bbanner\b|\bimage\b|\bimages\b|\bpreview\b|\bpicture\b|\bphoto\b|\bgallery\b|\bmedia\b|截图|封面|配图|图片|主图/,
@@ -284,7 +133,7 @@
     name: /\bname\b|\btitle\b|product|\btool\b|\bapp\b|\bproject\b|\bstartup\b|\bbrand\b|名称|标题|产品|工具/
   };
 
-  function classify(field, desc) {
+  function classify(field, desc, opts = {}) {
     const { el, kind } = field;
     const type = (el.getAttribute('type') || '').toLowerCase();
     const s = desc.direct || desc.ctx;
@@ -293,17 +142,30 @@
     if (kind === 'file') {
       const accept = (el.getAttribute('accept') || '').toLowerCase();
       if (accept && !/image|\.png|\.jpe?g|\.webp|\.gif|\.svg|\*/.test(accept)) return null;
+      if (el.dataset.autosubmitImage) return el.dataset.autosubmitImage;
       if (RX.logo.test(both)) return 'logo';
       if (RX.hero.test(both)) return 'hero';
       return 'image?';
     }
-    if (kind === 'select') return RX.tags.test(both) ? 'tags' : null;
+    if (kind === 'select') {
+      // An unlabelled select offering Free / Freemium / Paid is the pricing model.
+      const opts = [...el.options].map((o) => o.text.trim().toLowerCase());
+      if (RX.pricing.test(both) || opts.includes('freemium') || (opts.includes('free') && opts.includes('paid'))) return 'pricing';
+      return RX.tags.test(both) ? 'tags' : null;
+    }
 
     const ac = (el.getAttribute('autocomplete') || '').toLowerCase().split(/\s+/).pop();
     if (type === 'email' || ac === 'email') return 'email';
     if (ac === 'url') return 'url';
+    if (opts.submitter && ac === 'given-name') return 'firstName';
+    if (opts.submitter && ac === 'family-name') return 'lastName';
+    if (opts.submitter && ac === 'name') return 'fullName';
     if (/^(name|given-name|family-name|additional-name|nickname|username|tel|tel-national|organization-title|current-password|new-password|one-time-code)$/.test(ac)) return null;
     if (RX.notOurs.test(desc.direct) && !RX.email.test(desc.direct)) return null;
+    if (RX.person.test(desc.direct) && !RX.email.test(desc.direct)) {
+      if (!opts.submitter) return null;
+      return RX.firstName.test(desc.direct) ? 'firstName' : RX.lastName.test(desc.direct) ? 'lastName' : 'fullName';
+    }
     if (RX.email.test(s)) return 'email';
 
     // Text value that points at an image asset: we only have files, skip.
@@ -325,8 +187,9 @@
     if (RX.url.test(s) && !/\bname\b|\btitle\b|名称/.test(s)) return 'url';
     if (RX.name.test(s)) return 'name';
 
-    // Nothing in the direct hints – try the surrounding context once more.
-    if (desc.direct && desc.ctx) return classify(field, { direct: '', ctx: desc.ctx, all: desc.ctx });
+    // Nothing in the direct hints – try the surrounding context once more (a field with its own label we
+    // don't understand keeps it, so it doesn't borrow the label of the field above).
+    if (desc.direct && desc.ctx && !desc.labelled) return classify(field, { direct: '', ctx: desc.ctx, all: desc.ctx }, opts);
     if (kind === 'textarea' || kind === 'rich') return 'description?';
     return null;
   }
@@ -339,12 +202,18 @@
     return (m ? m[0] : String(text || '')).trim();
   }
 
-  function valueFor(key, product, el) {
+  function valueFor(key, product, el, submitter) {
     const tags = product.tags || [];
+    const who = submitter || {};
     switch (key) {
+      // First/last names identify a person; never substitute a product name.
+      case 'firstName': return who.firstName;
+      case 'lastName': return who.lastName;
+      case 'fullName': return [who.firstName, who.lastName].filter(Boolean).join(' ') || product.name;
+      case 'pricing': return product.pricing;
       case 'name': return product.name;
       case 'url': return product.url;
-      case 'email': return product.email;
+      case 'email': return product.email || who.email;
       case 'tagline': return product.tagline || firstSentence(product.description);
       case 'description': return product.description || product.tagline;
       case 'useCases': return product.useCases || product.description;
@@ -412,6 +281,17 @@
     el.dispatchEvent(new Event('change', { bubbles: true }));
   }
 
+  function selectPricing(el, pricing) {
+    const want = String(pricing || '').trim().toLowerCase();
+    if (!want) return false;
+    const opts = [...el.options].filter((o) => o.value !== '' && !o.disabled);
+    const chosen = opts.find((o) => o.text.trim().toLowerCase() === want) ||
+      opts.find((o) => o.text.trim().toLowerCase().startsWith(want));
+    if (!chosen) return false;
+    setNativeValue(el, chosen.value);
+    return chosen.text.trim();
+  }
+
   function selectTag(el, tags) {
     const want = tags.map((t) => t.toLowerCase());
     const opts = [...el.options].filter((o) => o.value !== '' && !o.disabled);
@@ -462,9 +342,11 @@
   // ---------------------------------------------------------------------------
   // Autofill
   // ---------------------------------------------------------------------------
-  function autofill(product, { overwrite }) {
+  // opts.root limits filling to one form, opts.skip lists selectors to leave alone,
+  // opts.submitter ({ firstName, lastName, email }) lets batch runs fill "Your name" style fields.
+  function autofill(product, { overwrite, root, skip = [], submitter } = {}) {
     clearHighlights();
-    const fields = collectFields();
+    const fields = collectFields(root || document).filter(({ el }) => !skip.some((sel) => el.matches(sel)));
     const filled = [];
     const used = new Set();
     const pendingImages = [];
@@ -479,6 +361,12 @@
       const { el, kind } = field;
       if (kind === 'check') {
         const texts = checkLabelText(el);
+        const pricing = String(product.pricing || '').trim().toLowerCase();
+        if (pricing && texts.includes(pricing) && RX.pricing.test(clean(`${el.name} ${contextText(el)}`))) {
+          if (!el.checked) el.click();
+          if (el.checked) record(field, 'pricing', product.pricing, '✓');
+          continue;
+        }
         const tag = (product.tags || []).find((t) => texts.includes(t.trim().toLowerCase()));
         if (tag && !el.checked) {
           el.click();
@@ -489,7 +377,7 @@
       }
 
       const desc = describe(el);
-      const key = classify(field, desc);
+      const key = classify(field, desc, { submitter });
       if (!key) continue;
       const label = desc.direct || desc.ctx;
 
@@ -502,12 +390,12 @@
       if (currentValue(el, kind) && !overwrite) continue;
 
       if (kind === 'select') {
-        const picked = selectTag(el, product.tags || []);
-        if (picked) record(field, 'tags', label, picked);
+        const picked = key === 'pricing' ? selectPricing(el, product.pricing) : selectTag(el, product.tags || []);
+        if (picked) record(field, key, label, picked);
         continue;
       }
 
-      let value = valueFor(key, product, el);
+      let value = valueFor(key, product, el, submitter);
       if (!value) continue;
       if (kind === 'rich') setRichValue(el, value);
       else {
@@ -549,18 +437,9 @@
     return filled;
   }
 
-  // ---------------------------------------------------------------------------
-  // Keep the detection badge fresh on SPA pages / multi-step forms
-  // ---------------------------------------------------------------------------
-  let timer = null;
-  const observer = new MutationObserver((mutations) => {
-    if (mutations.every((m) => host.contains(m.target) || m.target === host)) return;
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      const summary = detectSummary();
-      if (panelOpen) send(summary);
-    }, 800);
-  });
-  observer.observe(document.documentElement, { childList: true, subtree: true });
-  setTimeout(detectSummary, 500);
+  // Shared with runner.js (batch submission), which runs in the same isolated world.
+  self.AutoSubmitEngine = {
+    collectFields, describe, classify, autofill, valueFor, fitLength, isVisible,
+    setNativeValue, setRichValue, setFile, dataUrlToFile, highlight, clean, RX
+  };
 })();

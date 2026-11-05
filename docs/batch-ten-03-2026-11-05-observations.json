@@ -1,0 +1,145 @@
+[
+  {
+    "domain": "tipseason.com",
+    "observedDate": "2026-11-05",
+    "url": "https://www.tipseason.com/ai-tools/submit-free",
+    "status": "blocked-product-pricing",
+    "reason": "免费表单已加载，但产品定价只有Free/Paid/Freemium，无Free Trial；不得把RTFV填成其他模式。公开免费队列仅90+天、上限未知，未提交。",
+    "freeEvidence": "Free Listing → Submit for Free; premium $49/$99 not selected",
+    "queueDays": null,
+    "queueText": "90+ days (minimum only; no upper bound)",
+    "fields": {
+      "input[name=email]": "email",
+      "input[name=name]": "name",
+      "textarea[name=shortDescription]": "shortDescription <=30 words",
+      "textarea[name=longDescription]": "longDescription <=500 words",
+      "button[role=combobox]": "category custom picker",
+      "Pricing Model radio": "Free/Paid/Freemium only",
+      "input[name=useCase]": "primary use case",
+      "input[name=website]": "url",
+      "input[name=socialUrl]": "optional social",
+      "Advertising radio": "Yes/No; No required by free-only task",
+      "input[name=howHeard]": "source"
+    },
+    "submitButton": "Submit for Review",
+    "declaredProtocol": {
+      "method": null,
+      "action": null,
+      "transport": "page-js"
+    },
+    "submitted": false
+  },
+  {
+    "domain": "aigation.com",
+    "observedDate": "2026-11-05",
+    "url": "https://aigation.com/submit",
+    "status": "site-error",
+    "reason": "主页可访问，实际导航Submit指向/submit并返回404 Not Found；没有可用投稿表单，未提交。",
+    "evidence": "Native IAB clicked visible Submit; 404 Not Found / resource could not be found",
+    "submitted": false
+  },
+  {
+    "domain": "aitoolfor.org",
+    "observedDate": "2026-11-05",
+    "url": "https://aitoolfor.org/#other-01-638181",
+    "status": "excluded-paid",
+    "reason": "实际嵌入投稿表单已加载，唯一Instant Listing收费49美元；不加入免费队列，未填写或付款。",
+    "externalForm": "https://selldigitals.com/widgets/672df3d671de775dbe555b72?storeId=671ff811d558060f501e87ce",
+    "fields": [
+      "Email",
+      "Twitter handle",
+      "Title",
+      "AI Tool URL",
+      "Short description",
+      "Full description",
+      "X/Twitter URL",
+      "Category custom picker",
+      "Pricing custom picker",
+      "Demo video link",
+      "Logo file"
+    ],
+    "listingPrice": "$49 Instant Listing",
+    "submitButton": "Add Your Tool",
+    "submitted": false
+  },
+  {
+    "domain": "betalist.com",
+    "observedDate": "2026-11-05",
+    "url": "https://betalist.com/help",
+    "status": "excluded-paid",
+    "reason": "官方FAQ明确写所有投稿都需付费、已不再提供免费投稿。未创建账号、未发送资料、未支付。",
+    "evidence": [
+      "How much does it cost to submit a startup? All submissions are paid. There is no free submission option.",
+      "Is there a free submission option? No. BetaList used to offer free submissions, but all submissions now require payment."
+    ],
+    "entry": "https://betalist.com/submissions/new",
+    "fields": [
+      "Website URL",
+      "Your Email; Continue creates account or sends sign-in code"
+    ],
+    "submitted": false
+  },
+  {
+    "domain": "toolfolio.io",
+    "observedDate": "2026-11-05",
+    "url": "https://toolfolio.com/boosted-listing#pricing",
+    "status": "excluded-paid",
+    "reason": "当前Submit tool指向付费Listing Options：Startup 99美元一次，Growth月/年付。FAQ所谓free claims仅限认领已有工具，不等于免费新增收录。未付款。",
+    "canonicalDomain": "toolfolio.com",
+    "evidence": [
+      "Startup $99 one off",
+      "Growth $250 monthly / $2,500 yearly",
+      "We offer free claims for tools already listed on Toolfolio, plus two paid listing tiers"
+    ],
+    "submitted": false
+  },
+  {
+    "domain": "advanced-innovation.io",
+    "observedDate": "2026-11-05",
+    "url": "https://www.advanced-innovation.io/",
+    "status": "excluded-duplicate-channel",
+    "reason": "官方Tool einreichen实际指向ki-suche.io/einreichen，与已投稿ki-suche.io重复；保留原回执，不作为新增独立投稿。",
+    "canonicalDomain": "ki-suche.io",
+    "submissionEntry": "https://ki-suche.io/einreichen",
+    "evidence": "Footer KI Suche → Tool einreichen; ki-suche.io already has recorded receipt",
+    "submitted": false
+  },
+  {
+    "domain": "chatgptdemo.com",
+    "observedDate": "2026-11-05",
+    "url": "https://chatgptdemo.com/",
+    "status": "no-public-entry-found",
+    "reason": "当前为AI玩新聞资讯站；本轮可见导航、页脚及链接未发现产品投稿入口，仅首页和隐私政策。未把文章分类或搜索当投稿。",
+    "evidence": "Title AI玩新聞; navigation AI新聞/AI工具/AI模型; footer首頁/隱私權政策; no submit/contact link observed",
+    "submitted": false
+  },
+  {
+    "domain": "cloudbooklet.com",
+    "observedDate": "2026-11-05",
+    "url": "https://www.cloudbooklet.com/",
+    "status": "no-public-entry-found",
+    "reason": "当前首页为Free AI Chat及自有AI生成工具；可见菜单/链接没有目录投稿入口。未向聊天窗口发送产品资料。",
+    "evidence": "AI Chat / AI Story / AI Images / Face Swap / AI News, Login; no submit/directory link observed",
+    "submitted": false
+  },
+  {
+    "domain": "aistacks.io",
+    "observedDate": "2026-11-05",
+    "url": "https://aistacks.io/",
+    "status": "access-blocked",
+    "reason": "内置浏览器被Cloudflare直接阻挡（Sorry, you have been blocked）；未取得表单，保留待核实，不勾投稿或核查结项。",
+    "evidence": "Attention Required! You are unable to access aistacks.io",
+    "submitted": false
+  },
+  {
+    "domain": "ailisted.io",
+    "observedDate": "2026-11-05",
+    "url": "https://ailisted.io/",
+    "status": "excluded-unrelated",
+    "reason": "域名跳转至myhealthyjoylife.com健康推广落地页，已非可核实AI目录投稿渠道；未与外部落地页交互。",
+    "redirectHost": "myhealthyjoylife.com",
+    "redirectPath": "/lp-chlog/",
+    "evidence": "IAB navigation automatically redirected outside source directory domain",
+    "submitted": false
+  }
+]

@@ -1,0 +1,30 @@
+<!doctype html><html><body><main></main><script>
+// Local Typeform-shaped fixture: one question per title, followed by a grouped contact screen.
+const answers = {};
+const main = document.querySelector('main');
+function question(number) {
+  if (number < 3) {
+    const text = number === 1 ? 'What is the name of your AI Tool?' : "What is your tool's website?";
+    document.title = 'Free Tool Submission | ' + text;
+    main.innerHTML = `<div id="question-title">${text}*</div><input name="${number === 1 ? 'tool_name' : 'tool_url'}" type="${number === 1 ? 'short_text' : 'url'}" aria-labelledby="question-title"><button>OK</button>`;
+    main.querySelector('button').onclick = () => {
+      const input = main.querySelector('input'); answers[input.name] = input.value; question(number + 1);
+    };
+  } else {
+    document.title = 'Free Tool Submission | Where can we reach you?';
+    main.innerHTML = `<h2>Where can we reach you?</h2><p>We will be in touch to finalize your tool's listing.</p>
+      <label>First name *<input id="79ae6a70-8c70-4401-af9f-844c83bea8ff" name="first_name" required></label>
+      <label>Last name *<input id="a77c3def-7695-4e69-9c08-0b1dd64ad6c7" name="last_name" required></label>
+      <label>Email *<input type="email" name="email" required></label><button>Submit</button>`;
+    main.querySelector('button').onclick = async () => {
+      const inputs = [...main.querySelectorAll('input')];
+      if (inputs.some(input => !input.checkValidity())) return;
+      for (const input of inputs) answers[input.name] = input.value;
+      await fetch('/received', {method:'POST', body:JSON.stringify(answers)});
+      document.title = 'Free Tool Submission';
+      main.innerHTML = "<h1>Thanks!</h1><p>We'll be in touch over the next few days to proceed with your listing.</p>";
+    };
+  }
+}
+question(1);
+</script></body></html>

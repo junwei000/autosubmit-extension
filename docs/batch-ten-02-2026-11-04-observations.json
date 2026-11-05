@@ -1,0 +1,280 @@
+[
+  {
+    "domain": "submityouraitool.com",
+    "observedDate": "2026-11-04",
+    "url": "https://submityouraitool.com/#Submit-AI-Tool-Below",
+    "externalForm": "https://embed.fillout.com/t/cBypbJX257us",
+    "source": "Observed iframe src in public submission page",
+    "freeEvidence": "Submit Your AI Tool For Free; showcase at no cost; no reciprocal or payment step",
+    "fields": {
+      "input[aria-label=\"AI Tool Name:\"]": "name",
+      "input[aria-label=\"Website\"]": "url",
+      "textarea[aria-label=\"Description\"]": "description",
+      "input[aria-label=\"Email:\"]": "email"
+    },
+    "image": {
+      "widget": ".widget-2YpyK7B3k6NzWoktR4ZrHM",
+      "required": true,
+      "accepts": "jpg,jpej (page spelling); PNG rejected",
+      "maxBytes": 1048576,
+      "uploaded": "docs/assets/rtfv-og.jpg",
+      "bytes": 108590
+    },
+    "lazyValidation": "Initial AX showed only 3 fields; Submit revealed required email and image. Must wait for complete form and validate upload before final click.",
+    "result": "Thank you for your submission. We will review your information and get back to you shortly.",
+    "queueDays": null,
+    "proofImage": "docs/proofs/submityouraitool-rtfv.jpg",
+    "actualNetworkProtocol": "not-captured"
+  },
+  {
+    "domain": "toolhunter.ai",
+    "observedDate": "2026-11-04",
+    "url": "https://toolhunter.ai/profile?tab=submissions&action=new",
+    "freeEvidence": "Entry advertises List free; final page requires badge verification before publication. Final requirement takes precedence.",
+    "account": "User registered; Gmail email verification completed; no password or auth token recorded.",
+    "wizard": [
+      {
+        "step": "Tool details",
+        "fields": {
+          "name": "Remove Text From Video",
+          "url": "https://rtfv.app",
+          "oneLiner": "Remove burned-in text, subtitles and watermarks from video with AI.",
+          "category": "Video Editing",
+          "pricing": "free-trial"
+        },
+        "selectors": {
+          "name": "[placeholder=\"e.g. Castmagic\"]",
+          "url": "[placeholder=\"https://example.com\"]",
+          "category": "[placeholder=\"Type to filter categories…\"]"
+        },
+        "pricingOptions": [
+          "free",
+          "freemium",
+          "free-trial",
+          "paid",
+          "contact-for-pricing"
+        ]
+      },
+      {
+        "step": "Assets & pitch",
+        "requiredUploads": {
+          "logo": "PNG/JPG/WEBP, max 5MB, square ideal256; uploaded180x180PNG",
+          "screenshot": "PNG/JPG/WEBP, max5MB, landscape >=1000px wide; uploaded actual1024x713 workspace"
+        },
+        "optional": [
+          "key features",
+          "target audience",
+          "highlights"
+        ]
+      },
+      {
+        "step": "About you",
+        "fields": [
+          "support@rtfv.app",
+          "Horan He"
+        ],
+        "optional": [
+          "relationship",
+          "socials",
+          "affiliate partnership"
+        ]
+      }
+    ],
+    "result": "Accepted ✓; Remove Text From Video is approved — your page is ready. One step left: add the badge ... then verify — your page goes live the moment we see it.",
+    "status": "excluded-reciprocal-required",
+    "published": false,
+    "badgeAdded": false,
+    "proofImage": "docs/proofs/toolhunter-badge-required.jpg",
+    "queueDays": null,
+    "actualNetworkProtocol": "not-captured"
+  },
+  {
+    "domain": "uneed.best",
+    "observedDate": "2026-11-04",
+    "url": "https://www.uneed.best/submit-a-tool",
+    "steps": [
+      "Name and URL → Preview my product → generated draft → Sign up with email"
+    ],
+    "registration": "https://www.uneed.best/signup?redirectTo=/submit-a-tool",
+    "registrationFields": [
+      "email",
+      "username",
+      "password",
+      "confirm password"
+    ],
+    "status": "excluded-queue",
+    "optionalNewsletter": false,
+    "queueDays": 222,
+    "freeStatus": "Authenticated free line schedules June14 2027 (~222 days); excluded by >100day rule",
+    "proofImage": "docs/proofs/uneed-queue-over-100-days.jpg",
+    "freeLaunchDate": "2027-06-14",
+    "reason": "Authenticated free plan explicitly schedules June14 2027 (~222 days away), over100day limit. Join the line NOT clicked. Generated draft remains, not scheduled or counted as successful submission.",
+    "account": "User completed password registration; authorized Gmail verification completed; no password/token recorded",
+    "draftUrl": "https://www.uneed.best/edit/waiting-line/70027?new=true"
+  },
+  {
+    "domain": "tinylaun.ch",
+    "observedDate": "2026-11-04",
+    "canonicalDomain": "tinylaunch.com",
+    "url": "https://www.tinylaunch.com/pricing",
+    "freeEvidence": "Standard Launch Free; Get Started Free → Go to Dashboard; optional $39 premium not selected",
+    "queueDays": 33,
+    "status": "submitted-scheduled",
+    "registration": "https://www.tinylaunch.com/signup",
+    "registrationFields": [
+      "email",
+      "password"
+    ],
+    "login": "Email Continue; Google/GitHub/X also available",
+    "reciprocal": "Free publication scheduled without badge. High-authority backlink reward requires top3 AND embedded badge; no badge added, no backlink reward claimed. ToolsRodeo reciprocal cross-promotion ignored.",
+    "launchDate": "2026-12-07",
+    "reviewText": "Usually less than24hours; pending review",
+    "account": "User password registration completed; email verified through authorized Gmail; maker Horan He / rtfv_app saved",
+    "creationUrl": "https://www.tinylaunch.com/dashboard/startups/new",
+    "startupId": "33046",
+    "fields": {
+      "#name": "name (max30)",
+      "#tagline": "tagline (max60)",
+      "#url": "url",
+      "[contenteditable=true]": "description",
+      "#category": "Video & Content Creation (value16)",
+      "input[type=file] (first)": "logo",
+      "#terms": "no duplicate self-voting promise"
+    },
+    "profileFields": [
+      "#firstName",
+      "#lastName (optional)",
+      "#handle (5–20 letters/numbers/underscore)",
+      "#xHandle optional leftblank"
+    ],
+    "startupDraft": "Created startup is not final submission; launches require separate date/plan/final confirmation",
+    "steps": [
+      "Choose earliest Free available date (first4weeks Free full); Dec7 selected (33calendar days)",
+      "Configure Launch → Standard Free",
+      "Directory Submissions → None — $0",
+      "AI Visibility Audit → None — $0",
+      "Schedule Free Launch → paid upsell (still not final)",
+      "Continue with free launch → /dashboard/launches/30235/success"
+    ],
+    "receiptUrl": "https://www.tinylaunch.com/dashboard/launches/30235/success",
+    "result": "Launch Scheduled. Your launch has been successfully scheduled and is now pending review. This usually takes less than24hours.",
+    "termsConfirmed": true,
+    "promiseConfirmed": "User explicitly agreed active checkbox and Create Startup",
+    "proofImage": "docs/proofs/tinylaunch-rtfv-scheduled.jpg",
+    "actualNetworkProtocol": "not-captured"
+  },
+  {
+    "domain": "whattheai.tech",
+    "observedDate": "2026-11-04",
+    "url": "https://whattheai.tech/submit",
+    "freeEvidence": "Regular listing Free; standard review queue can take a while; optional $49/$299 plans",
+    "queueDays": null,
+    "requiredFields": [
+      "Tool Name",
+      "Short Description",
+      "Long Description",
+      "Your Name",
+      "Hero Screenshot <=5MB",
+      "Website URL",
+      "Pricing Type",
+      "Categories",
+      "Key Features",
+      "Supported Platforms"
+    ],
+    "pricingOptions": [
+      "Free",
+      "Freemium",
+      "Paid",
+      "Contact"
+    ],
+    "status": "blocked-product-pricing",
+    "reason": "No Free Trial option; do not mislabel product as Free/Freemium/Paid. No submission attempted."
+  },
+  {
+    "domain": "aifinderguru.com",
+    "observedDate": "2026-11-04",
+    "url": "https://aifinderguru.com/accounts/signup/?next=%2Fsubmit%2F",
+    "status": "blocked-registration-captcha",
+    "fields": [
+      "Username required",
+      "E-mail optional",
+      "Image CAPTCHA required",
+      "Password",
+      "Password again"
+    ],
+    "termsUrl": "https://aifinderguru.com/terms-of-service/",
+    "privacyUrl": "https://aifinderguru.com/privacy-policy/",
+    "reason": "User requested skipping CAPTCHA tests; no registration or submission; authenticated free conditions remain unverified",
+    "queueDays": null
+  },
+  {
+    "domain": "toolnav.ai",
+    "observedDate": "2026-11-04",
+    "url": "https://toolnav.ai/submit",
+    "status": "waiting-login",
+    "steps": [
+      "Website links",
+      "Edit & preview",
+      "Choose publication"
+    ],
+    "registration": "https://toolnav.ai/sign-up",
+    "registrationFields": [
+      "Name #name",
+      "Email",
+      "Password",
+      "Confirm Password"
+    ],
+    "termsUrl": "https://toolnav.ai/terms-of-service",
+    "privacyUrl": "https://toolnav.ai/privacy-policy",
+    "reason": "Submission form requires authentication; free/no reciprocal and queue not yet confirmed behind login. No placeholder adapter added.",
+    "queueDays": null
+  },
+  {
+    "domain": "aiai.tools",
+    "observedDate": "2026-11-04",
+    "url": "https://aiai.tools/submit-ai-tool",
+    "externalForm": "https://tally.so/embed/3NADy0",
+    "status": "submitted",
+    "freeEvidence": "Observed entire two-page submission flow without fees. Reciprocal question offers explicit No; No selected.",
+    "fields": {
+      "[aria-label=\"Your Name\"]": "fullName",
+      "[aria-label=\"Contact Email Address\"]": "email",
+      "[aria-label=\"Tool Name\"]": "name",
+      "[aria-label=\"URL\"]": "url",
+      "[placeholder=\"Screenshot URL\"]": "heroUrl"
+    },
+    "imageUrl": "https://rtfv.app/og.jpg",
+    "imageUrlSource": "Observed meta[property=\"og:image\"] on https://rtfv.app in IAB",
+    "reciprocalSelector": "#choice_9696e6e3-4baf-484d-a1e7-00d9db1df83d",
+    "reciprocalValue": "No",
+    "intermediate": "First Submit opens page2 Done! Your Submit is completed. Still has Back and Submit: NOT final receipt.",
+    "finalAction": "Second Submit; wait for final receipt",
+    "result": "Form submitted. Thanks for completing this form!",
+    "proofImage": "docs/proofs/aiai-rtfv.jpg",
+    "queueDays": null,
+    "actualNetworkProtocol": "not-captured"
+  },
+  {
+    "domain": "forumforyou.it",
+    "observedDate": "2026-11-04",
+    "url": "https://www.forumforyou.it/Segnalaci_Il_tuo_sito.asp",
+    "status": "form-not-rendered",
+    "declaredForm": {
+      "method": "not-captured",
+      "action": "/modulo/upultima/save.asp?language=it",
+      "visibleFields": 0
+    },
+    "reason": "Page renders navigation and footer, empty form; other frames are advertisements and Facebook comments, not submission. No usable controls; do not submit directly to action URL.",
+    "queueDays": null
+  },
+  {
+    "domain": "microlaunch.net",
+    "observedDate": "2026-11-04",
+    "url": "https://microlaunch.net/",
+    "status": "free-plan-not-observed",
+    "action": "Clicked New Launch",
+    "result": "Pick your Launch modal contains Pro Launch, Go Pro Now!, discount code and 50% student/OSS discount only. No free launch button in observed modal.",
+    "reason": "Current entry only presents Pro; no free submission verified. Do not pay or treat unrelated Free Tools footer as free listing evidence.",
+    "queueDays": null
+  }
+]

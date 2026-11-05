@@ -1,0 +1,12 @@
+[
+  {"domain":"guideofaitool.com","status":"missing-required-information","analysisLevel":"live-page-flow","url":"https://www.guideofaitool.com/submit-ai-tool","reason":"FAQ写明投稿完全免费，48小时内审核，不接受付费上榜。表单必填姓名、邮箱、PayPal邮箱、工具名和网址。PayPal邮箱标注只作投稿参考，没有现成PayPal地址，不把联系邮箱改写进去。其余字段由插件填写后暂停，未点击Submit。"},
+  {"domain":"guinly.com","status":"access-blocked","analysisLevel":"blocked","url":"https://guinly.com/","reason":"TLS握手返回internal error。内置浏览器停在连接错误页，未改用不安全连接。"},
+  {"domain":"hao.logosc.cn","status":"access-blocked","analysisLevel":"blocked","url":"https://hao.logosc.cn/","reason":"证书已过期。内置浏览器停在连接错误页，未绕过安全警告。"},
+  {"domain":"hayoai.com","status":"site-error","analysisLevel":"blocked","url":"https://www.hayoai.com/","reason":"页面仍显示Deployment Paused，部署暂时暂停。不认定永久关闭，未取得投稿表单。"},
+  {"domain":"huntagi.com","status":"access-blocked","analysisLevel":"blocked","url":"https://huntagi.com/","reason":"重新访问仍是TLS握手被对端提前关闭。内置浏览器停在连接错误页，未改用不安全连接。"},
+  {"domain":"indiebaker.com","status":"access-blocked","analysisLevel":"blocked","url":"https://indiebaker.com/","reason":"TLS握手超时。内置浏览器停在连接错误页，未取得投稿表单。"},
+  {"domain":"insidr.ai","status":"needs-free-verification","analysisLevel":"live-page-flow","url":"https://www.insidr.ai/submit-tools/","reason":"目录投稿表单可见，分类含AI Video Tools，产品定价含Free trial。默认是AI Art Generators和Freemium。赞助位是旁边的Advertise链接，没有打开。页面说会就投稿和赞助选项发邮件。插件改选视频分类和Free trial后暂停，未提交。"},
+  {"domain":"jyshare.com","status":"access-blocked","analysisLevel":"blocked","url":"https://jyshare.com/","reason":"证书主机名不匹配。内置浏览器停在连接错误页，未绕过安全警告。"},
+  {"domain":"kdjingpai.com","status":"site-error","analysisLevel":"blocked","url":"https://kdjingpai.com/","reason":"Cloudflare 521，源站没有返回连接。未取得投稿表单。"},
+  {"domain":"kj123.cn","status":"waiting-login","analysisLevel":"live-entry-review","url":"https://www.kj123.cn/contribute","reason":"www首页是跨境123导航。网址提交页写明免费收录，但表单需要登录才能看到，并要求400×400方形图标。未登录，也没有走友链申请。"}
+]

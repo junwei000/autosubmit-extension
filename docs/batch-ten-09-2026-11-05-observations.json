@@ -1,0 +1,122 @@
+[
+  {
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "queueDays": null,
+    "domain": "ais-hub.com",
+    "status": "access-blocked",
+    "url": "https://ais-hub.com/",
+    "reason": "重新访问时 TLS 握手超时，内置浏览器停在连接错误页。未取得投稿表单。",
+    "analysisLevel": "blocked",
+    "browserError": "TLS handshake timed out; chrome-error page"
+  },
+  {
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "queueDays": null,
+    "domain": "aistacks.io",
+    "status": "access-blocked",
+    "url": "https://aistacks.io/",
+    "reason": "内置浏览器仍被 Cloudflare 直接阻挡，标题为 Sorry, you have been blocked。未取得表单，不绕过拦截。",
+    "analysisLevel": "blocked",
+    "browserError": "Cloudflare Attention Required"
+  },
+  {
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "queueDays": null,
+    "domain": "aisupersmart.com",
+    "status": "site-error",
+    "url": "https://aisupersmart.com/cgi-sys/suspendedpage.cgi",
+    "reason": "投稿网址仍跳到主机 Account Suspended 页面。不把暂停当成永久关站，未提交。",
+    "analysisLevel": "live-entry-review"
+  },
+  {
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "queueDays": null,
+    "domain": "aitoolforbusiness.com",
+    "status": "excluded-parked",
+    "url": "http://ww547.aitoolforbusiness.com/",
+    "reason": "首页跳到停放页，只列出相关搜索广告，没有表单。未提交。",
+    "analysisLevel": "live-entry-review"
+  },
+  {
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "queueDays": null,
+    "domain": "aitoolguru.com",
+    "status": "site-error",
+    "url": "https://aitoolguru.com/",
+    "reason": "Cloudflare 522 Connection timed out，源站没有完成请求。未取得投稿表单。",
+    "analysisLevel": "blocked",
+    "browserError": "Cloudflare 522"
+  },
+  {
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "queueDays": null,
+    "domain": "aitoolpath.com",
+    "status": "access-blocked",
+    "url": "https://aitoolpath.com/",
+    "reason": "证书已过期。内置浏览器停在连接错误页，未绕过安全警告，提交条件未确认。",
+    "analysisLevel": "blocked",
+    "browserError": "certificate has expired"
+  },
+  {
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "queueDays": null,
+    "domain": "aitoolsnetwork.com",
+    "status": "waiting-captcha",
+    "url": "https://aitoolsnetwork.com/join/",
+    "reason": "JOIN 页 Basic 明确免费，用等候名单表单收录。Pro 每年 400 美元、Pro Plus 每年 550 美元指向 Stripe，未打开。表单含主题、邮箱、网址、姓名、说明和汽车图形验证码。插件选择等候名单并填表，验证码未代答，未点击 Send。",
+    "analysisLevel": "live-page-flow",
+    "pricing": ["Basic Free", "Pro $400/year", "Pro Plus $550/year"],
+    "form": {
+      "declaredMethod": "POST",
+      "declaredAction": "/join/#wpcf7-f1252-p737-o1",
+      "actualNetworkProtocol": "not-captured",
+      "fields": {
+        "#cf-subject": "Get into the waiting list",
+        "[name=cf-email]": "email",
+        "[name=cf-website]": "url",
+        "[name=cf-name]": "fullName",
+        "[name=cf-message]": "name and description",
+        "input[name=kc_captcha]": "human image captcha, not solved",
+        "input[name=kc_honeypot]": "left empty"
+      }
+    }
+  },
+  {
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "queueDays": null,
+    "domain": "aitoolstoknow.com",
+    "status": "site-error",
+    "url": "https://aitoolstoknow.com/submit-ai-tool/",
+    "reason": "首页仍像 AI 工具目录，About 页写明这是 Wayback 下载器的演示站。导航里的 Submit Tool 实际打开赌博页面，不是投稿表单。未填写、未提交。",
+    "analysisLevel": "live-entry-review"
+  },
+  {
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "queueDays": null,
+    "domain": "aitoolxplorer.com",
+    "status": "access-blocked",
+    "url": "https://aitoolxplorer.com/",
+    "reason": "TLS 握手返回 internal error，内置浏览器停在连接错误页。未改用不安全连接，免费与表单条件未确认。",
+    "analysisLevel": "blocked",
+    "browserError": "TLSV1_ALERT_INTERNAL_ERROR"
+  },
+  {
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "queueDays": null,
+    "domain": "aivalley.ai",
+    "status": "site-error",
+    "url": "https://aivalley.ai/submit-tool/",
+    "reason": "再次打开投稿页，Contact Form7 仍在，字段未变，data-status=init。上次发送错误后不自动重试，本次没有再次点击 Submit。",
+    "analysisLevel": "live-page-flow"
+  }
+]

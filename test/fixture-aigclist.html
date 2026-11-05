@@ -1,0 +1,35 @@
+<!doctype html><html><body><main></main><script>
+const main = document.querySelector('main');
+if (location.pathname.startsWith('/submit/review/')) {
+  main.innerHTML = `<h1>Review &amp; submit</h1><p>Your draft is saved. Nothing is submitted until you pick an option.</p>
+    <h3>Free</h3><p>$0 — Nofollow link. Badge optional.</p><button id="free">Submit for free review</button>
+    <button onclick="location.href='/paid'">Get Fast Track — $19</button><button onclick="location.href='/badge'">Add badge</button>`;
+  document.querySelector('#free').onclick = async () => {
+    await fetch('/received',{method:'POST',body:localStorage.getItem('draft')});
+    main.innerHTML = '<h1>Submitted — awaiting review</h1><p>Your listing is in the free review queue with a nofollow link.</p>';
+  };
+} else {
+  main.innerHTML = '<label>Website<input id="submit-website"></label><button>Continue</button>';
+  main.querySelector('button').onclick = () => {
+    const url = document.querySelector('#submit-website').value;
+    main.innerHTML = '<p>Website checked</p><button>or write it yourself</button>';
+    main.querySelector('button').onclick = () => {
+      main.innerHTML = `<section id="submit-details"><label>Tool name<input id="name" name="name"></label>
+        <label>Short description<textarea id="tagline" name="tagline" maxlength="200"></textarea></label>
+        <label>Category<input id="category" role="combobox" readonly></label><div role="listbox" hidden><div role="option">AI Video Editor</div></div>
+        <label>Detailed description<textarea id="content" name="content" minlength="400"></textarea></label>
+        <button id="pricing" type="button" onclick="localStorage.setItem('wrong-price-interaction','yes')">Pricing (optional) —</button>
+        <input id="discountCode"><textarea id="notes" name="notes"></textarea><button id="draft">Save draft &amp; choose plan</button></section>`;
+      const category = document.querySelector('#category'), list = document.querySelector('[role=listbox]');
+      category.onclick = () => {list.hidden=false;};
+      list.querySelector('[role=option]').onclick = () => {category.value='AI Video Editor';list.hidden=true;};
+      document.querySelector('#draft').onclick = async () => {
+        const fields = Object.fromEntries([...document.querySelectorAll('#submit-details input,#submit-details textarea')].map(e=>[e.id,e.value]));
+        const data = {...fields,url}; localStorage.setItem('draft',JSON.stringify(data));
+        await fetch('/draft-received',{method:'POST',body:JSON.stringify(data)});
+        location.href='/submit/review/fixture';
+      };
+    };
+  };
+}
+</script></body></html>

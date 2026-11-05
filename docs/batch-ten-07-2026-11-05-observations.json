@@ -1,0 +1,158 @@
+[
+  {
+    "domain": "toolsdar.mikecrm.com",
+    "url": "https://toolsdar.mikecrm.com/",
+    "status": "no-public-entry-found",
+    "reason": "候选地址加载麦客 CRM 通用产品页。检查导航、表单及公开搜索结果后，未找到 ToolsDar 的具体投稿表单。",
+    "observedDate": "2026-11-05",
+    "submitted": false
+  },
+  {
+    "domain": "yugaopian.cn",
+    "url": "https://yugaopian.cn/",
+    "status": "no-public-entry-found",
+    "reason": "混剪侠公开首页展示 AI 和素材链接。页面导航与页脚未提供工具投稿入口。",
+    "observedDate": "2026-11-05",
+    "submitted": false
+  },
+  {
+    "domain": "en.softonic.com",
+    "url": "https://developers.softonic.com/",
+    "status": "waiting-login",
+    "analysisLevel": "live-page-flow",
+    "reason": "官方发布中心确认免费收录 Web 应用。发布需要开发者账户，当前停在注册页。审核时间待核实。",
+    "evidence": [
+      "https://developers.softonic.com/",
+      "https://developers.softonic.com/faq/",
+      "https://developers.softonic.com/help/create-and-publish/"
+    ],
+    "account": {
+      "entry": "https://publishing-center.softonic.com/auth/register",
+      "provider": "auth.softonic.com",
+      "fields": [
+        "Name",
+        "Email",
+        "Password"
+      ],
+      "alternatives": [
+        "Google",
+        "GitHub"
+      ],
+      "signupTerms": "https://hello.softonic.com/terms-of-use/",
+      "created": false
+    },
+    "observedDate": "2026-11-05",
+    "submitted": false
+  },
+  {
+    "domain": "softonic-id.com",
+    "url": "https://www.softonic-id.com/",
+    "status": "excluded-duplicate-channel",
+    "reason": "印尼站页面加载后，Pengembang 和添加软件入口均指向与英文站相同的 Softonic 发布中心。合并到 en.softonic.com 条目。",
+    "duplicateOf": "en.softonic.com",
+    "evidence": [
+      "https://developers.softonic.com/"
+    ],
+    "observedDate": "2026-11-05",
+    "submitted": false
+  },
+  {
+    "domain": "indiehackers.com",
+    "url": "https://www.indiehackers.com/products/new",
+    "status": "waiting-login",
+    "analysisLevel": "live-page-flow",
+    "reason": "Products DB 提供 Add Your Product。实际入口要求登录。登录页支持邮箱密码，当前注册页展示 Google 登录。产品提交条件待登录后核实。",
+    "evidence": [
+      "https://www.indiehackers.com/products"
+    ],
+    "account": {
+      "entry": "https://www.indiehackers.com/sign-up?next=%2Fproducts%2Fnew",
+      "registrationProvider": "Google",
+      "loginProviders": [
+        "Google",
+        "Email and password"
+      ],
+      "created": false
+    },
+    "observedDate": "2026-11-05",
+    "submitted": false
+  },
+  {
+    "domain": "bjxueai.com",
+    "url": "https://www.bjxueai.com/links",
+    "status": "no-public-entry-found",
+    "reason": "首页展示搜索、后台登录和友情链接页面。检查链接页后，未找到公开收录表单或可确认的免费投稿路径。",
+    "observedDate": "2026-11-05",
+    "submitted": false
+  },
+  {
+    "domain": "h5anli.com",
+    "url": "https://www.h5anli.com/ai.html",
+    "status": "no-public-entry-found",
+    "reason": "AI 网站导航列出工具但未提供公开收录表单。另有 H5 定制需求和案例渠道，工具收录条件未核实。",
+    "evidence": [
+      "https://www.h5anli.com/submit.html",
+      "https://www.h5anli.com/service/contactus.html"
+    ],
+    "observedDate": "2026-11-05",
+    "submitted": false
+  },
+  {
+    "domain": "topstip.com",
+    "url": "https://topstip.com/",
+    "status": "no-public-entry-found",
+    "reason": "检查 TopsTip 首页和 TOP123 导航公开页面。可见登录与注册，未找到公开的网站收录表单。",
+    "evidence": [
+      "https://123.topstip.com/101.html"
+    ],
+    "observedDate": "2026-11-05",
+    "submitted": false
+  },
+  {
+    "domain": "forwardfuture.ai",
+    "url": "https://forwardfuture.com/tools/submit",
+    "status": "submitted-pending-review",
+    "analysisLevel": "live-page-flow",
+    "reason": "forwardfuture.ai 导向 forwardfuture.com。用户明确授权实际收件域名后，提交到免费免账号表单。页面确认进入编辑审核，未公布审核时间。",
+    "proofImage": "docs/proofs/forward-future-rtfv-receipt.jpg",
+    "queueDays": null,
+    "submission": {
+      "status": "submitted-pending-review",
+      "message": "Your submission is now under review.",
+      "date": "2026-11-05",
+      "proofImage": "docs/proofs/forward-future-rtfv-receipt.jpg"
+    },
+    "fields": {
+      "name": "Remove Text From Video",
+      "websiteUrl": "https://rtfv.app",
+      "pricing": "Free Trial",
+      "industry": "Content Creation & Media",
+      "profession": "Writers & Content Creators",
+      "tags": [
+        "video editing",
+        "video subtitles"
+      ]
+    },
+    "formDeclarations": [
+      {
+        "method": null,
+        "action": null,
+        "fieldNames": [
+          "name",
+          "websiteUrl",
+          "description",
+          "features",
+          "useCases",
+          "pricing",
+          "industry",
+          "profession",
+          "tags"
+        ]
+      }
+    ],
+    "actualNetworkProtocol": "not-captured",
+    "approval": "User explicitly authorized the canonical .com destination after auto-review blocked the original click for domain mismatch.",
+    "observedDate": "2026-11-05",
+    "submitted": true
+  }
+]

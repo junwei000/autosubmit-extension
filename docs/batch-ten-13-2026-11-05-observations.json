@@ -1,0 +1,12 @@
+[
+  {"domain":"letsdoitwithai.com","status":"site-error","analysisLevel":"blocked","url":"https://letsdoitwithai.com/","reason":"Cloudflare 522 Connection timed out，源站没有完成请求。未取得投稿表单。"},
+  {"domain":"lxnsm.com","status":"site-error","analysisLevel":"blocked","url":"https://www.lxnsm.com/","reason":"www 与裸域都是 nginx 502 Bad Gateway。未取得投稿表单。"},
+  {"domain":"m3elem.com","status":"access-blocked","analysisLevel":"blocked","url":"https://m3elem.com/","reason":"重新访问仍是TLS握手被对端提前关闭。内置浏览器停在连接错误页，未改用不安全连接。"},
+  {"domain":"manytools.ai","status":"needs-form-analysis","analysisLevel":"live-entry-review","url":"https://manytools.ai/submit-tool/","reason":"投稿页第一步只要求工具网址，按钮是Get Started。没有点击，避免在没看到后续步骤时发送。页面脚本包含Free、Paid、Trial定价以及长短描述和草稿。完整表单未取得。"},
+  {"domain":"nav.fastaiwork.com","status":"access-blocked","analysisLevel":"blocked","url":"https://nav.fastaiwork.com/","reason":"证书主机名不匹配。内置浏览器停在连接错误页，未绕过安全警告。"},
+  {"domain":"navto.ai","status":"site-error","analysisLevel":"blocked","url":"https://navto.ai/","reason":"Cloudflare 521，源站没有返回连接。未取得投稿表单。"},
+  {"domain":"openaitoolz.com","status":"access-blocked","analysisLevel":"blocked","url":"https://openaitoolz.com/","reason":"重新访问仍是TLS握手被对端提前关闭。内置浏览器停在连接错误页，未改用不安全连接。"},
+  {"domain":"opendigg.com","status":"site-error","analysisLevel":"live-entry-review","url":"https://docs.google.com/forms/d/e/1FAIpQLSdPrOYbIYoaUmv7XOD9wDy5boru5_1oKYhy3eaSbIRM7t-wMQ/viewform","reason":"导航Submit指向Google表单，字段有邮箱、名称、网址、介绍和分类（含Video）。Google页面提示此表单看起来可疑。未填写、未提交，不加入插件。"},
+  {"domain":"parentpreneur.ai","status":"access-blocked","analysisLevel":"blocked","url":"https://parentpreneur.ai/","reason":"重新访问仍是TLS握手被对端提前关闭。内置浏览器停在连接错误页，未改用不安全连接。"},
+  {"domain":"phpcms9.com","status":"site-error","analysisLevel":"blocked","url":"https://phpcms9.com/","reason":"Cloudflare 521，源站没有返回连接。未取得投稿表单。"}
+]

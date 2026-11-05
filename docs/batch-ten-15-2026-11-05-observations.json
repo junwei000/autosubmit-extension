@@ -1,0 +1,7 @@
+[
+  {"domain":"startupstash.com","status":"supported-waiting-human","analysisLevel":"live-page-flow","url":"https://form.typeform.com/to/b8EyDE","reason":"问卷已能打开。收录申请要姓名、工作邮箱、产品名、短描述、长描述、网址、分类和Logo。Gmail、Outlook、Yahoo会被拒。广告题答No会跳过付费投放和预算题并结束申请；答Yes才进入预算，最低一档不到3000美元。插件停在广告题，未投稿。"},
+  {"domain":"submitexpress.com","status":"excluded-service","analysisLevel":"live-entry-review","url":"https://www.submitexpress.com/","reason":"站点是付费SEO服务公司。名为免费网站提交的页面是把网址发给70多个搜索引擎的脚本，可见表单只是邮箱，不是产品目录收录。未填写。"},
+  {"domain":"tenthe.com","status":"access-blocked","analysisLevel":"blocked","url":"https://tenthe.com/","reason":"重新访问仍是TLS握手被对端提前关闭。内置浏览器停在连接错误页，未改用不安全连接。"},
+  {"domain":"theaigeneration.com","status":"site-error","analysisLevel":"blocked","url":"https://theaigeneration.com/","reason":"WordPress仍显示There has been a critical error on this website。未取得投稿表单。"},
+  {"domain":"zeemly.com","status":"site-error","analysisLevel":"live-entry-review","url":"https://zeemly.com/","reason":"页面仍写着Site in constructie，站点还在建设。不认定永久关闭，未取得投稿表单。"}
+]

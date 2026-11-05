@@ -1,0 +1,30 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Launch a product</title></head>
+<body style="font-family:sans-serif;max-width:640px;margin:30px auto">
+<!-- Short-description variants: each should receive the tagline. -->
+<form id="short">
+  <label>Product URL <input name="url" type="url"></label>
+  <div class="field"><div class="field-label">Short Description</div><input name="description"></div>
+  <input name="shortdescription">
+  <label>Brief description <input name="s3"></label>
+  <label>One-line description <input name="s4"></label>
+  <label>Description (short) <input name="s5"></label>
+  <label>Short product description <input name="s6"></label>
+  <label>简短描述 <input name="s7"></label>
+  <label>简要介绍 <input name="s8"></label>
+  <label>Product description <input name="s9" maxlength="80"></label>
+  <label>Full description <textarea name="long"></textarea></label>
+  <div class="plans">
+    <label><input type="radio" name="plan" value="free"> Free $0</label>
+    <label><input type="radio" name="plan" value="pro" checked> Pro $29</label>
+  </div>
+  <button>Submit for Review</button>
+</form>
+<script>
+  document.getElementById('short').addEventListener('submit', (e) => {
+    e.preventDefault();
+    localStorage.setItem('submitted', JSON.stringify(Object.fromEntries(new FormData(e.target).entries())));
+    setTimeout(() => { location.href = '/dashboard'; }, 300);
+  });
+</script>
+</body></html>

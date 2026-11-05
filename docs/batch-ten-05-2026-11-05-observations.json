@@ -1,0 +1,288 @@
+[
+  {
+    "domain": "viesearch.com",
+    "status": "dedup-review-requested",
+    "url": "https://viesearch.com/submit",
+    "reason": "用户记得此前处理过，暂不授权重投。已核对2026-11-03曾核查并适配，但无RTFV成功记录；Gmail历史无邮件；公开站内搜索rtfv.app未显示目标工具，不能排除旧待审申请。不重投，保留人工查重。",
+    "queueDays": null,
+    "queueText": "Usually1–2business days",
+    "fields": {
+      "#url": "url",
+      "#title": "name",
+      "#description": "description",
+      "#email": "email"
+    },
+    "skip": [
+      "#category-search"
+    ],
+    "declaredMethod": "POST",
+    "declaredAction": "/submit",
+    "termsUrl": "https://viesearch.com/terms",
+    "privacyUrl": "https://viesearch.com/privacy",
+    "guidelinesUrl": "https://viesearch.com/guidelines",
+    "standardsUrl": "https://viesearch.com/standards",
+    "proofImage": "docs/proofs/viesearch-dedup-search.jpg",
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "dedupSearchUrl": "https://viesearch.com/?q=rtfv.app"
+  },
+  {
+    "domain": "rankmyai.com",
+    "status": "attempted-unconfirmed",
+    "url": "https://www.rankmyai.com/tool-addition",
+    "reason": "用户确认合法公司Aniv AI Technology Limited。填原名称/网址/描述、联系人、Free Trial自由文本并点Send；表单清空但无明确回执/可见提示，Gmail暂无确认，记不确定尝试，不重投。",
+    "queueDays": null,
+    "fields": [
+      "your-name",
+      "your-email",
+      "what-is-the-name-of-the-tool",
+      "tool-website-url-or-subdomain",
+      "use-what-are-the-most-prominent-use-cases-or-functionalities-of-your-tool <=300",
+      "give-a-short-description-of-your-tool <=400",
+      "legal-company-name-or-developers-full-name-if-not-a-company required",
+      "pricing-paidfreemiumfree optional text <=15",
+      "optional company registration/year/employees/address/API/MCP: blank if unknown"
+    ],
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "legalName": "Aniv AI Technology Limited",
+    "proofImage": "docs/proofs/rankmyai-attempt-unconfirmed.jpg",
+    "finalEmailRecheck": {
+      "date": "2026-11-05",
+      "scope": "Gmail in:anywhere, site identity + support@rtfv.app, last7days",
+      "matchingEmails": 0
+    }
+  },
+  {
+    "domain": "startupstash.com",
+    "status": "form-access-blocked",
+    "url": "https://startupstash.com/add-listing/",
+    "reason": "官网List A Product仍指向/add-listing/，内嵌同一b8EyDE Typeform。直接问卷ERR_CONNECTION_CLOSED，嵌入iframe为空白，未取得完整问题/免费条件，不发送资料。",
+    "queueDays": null,
+    "embeddedForm": "https://form.typeform.com/to/b8EyDE",
+    "submitted": false,
+    "observedDate": "2026-11-05"
+  },
+  {
+    "domain": "bestofai.com",
+    "status": "site-error",
+    "url": "https://bestofai.com/",
+    "reason": "用户完成注册，授权Gmail验证码已验证并登录。真实投稿/tool/add显示404 Something went wrong / User not found；适当刷新后仍相同。未得到投稿表单或最终提交，待网站修复。",
+    "queueDays": null,
+    "login": "Clerk email/password or Google; ordinary email chosen",
+    "proofImage": "docs/proofs/bestofai-user-not-found.jpg",
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "emailVerified": true,
+    "passwordRecorded": false
+  },
+  {
+    "domain": "chatableapps.com",
+    "status": "blocked-product-pricing",
+    "url": "https://chatableapps.com/dashboard/login",
+    "reason": "补查Spam找到登录信，旧链接已过期，重新请求并通过新邮件magic link登录。本人清单无既有工具；进入向导后产品定价必填，只有Free/Paid/Freemium(Free+Paid)，无Free Trial。已清除默认Free，未创建或最终投稿。",
+    "queueDays": 30,
+    "login": "Email magic link or Google",
+    "proofImage": "docs/proofs/chatableapps-no-free-trial.jpg",
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "emailVerified": true,
+    "emailLocatedInSpam": true,
+    "pricingOptions": [
+      "Free",
+      "Paid",
+      "Freemium (Free + Paid)"
+    ],
+    "submissionUrl": "https://chatableapps.com/dashboard/tools/create",
+    "formAnalysis": {
+      "steps": [
+        "Approval Notice / Next",
+        "Basics & Media",
+        "Create (final; not clicked)"
+      ],
+      "requiredFields": [
+        "Name",
+        "Short description",
+        "Long description",
+        "Website URL",
+        "Platform (Web)",
+        "Product pricing"
+      ],
+      "optionalFields": [
+        "Media"
+      ],
+      "productPricingSelector": "[id=\"form.price_type\"]",
+      "pricingOptions": [
+        "Free",
+        "Paid",
+        "Freemium (Free + Paid)"
+      ],
+      "defaultFreeCleared": true,
+      "productDetailsEntered": false,
+      "finalSubmitClicked": false,
+      "actualNetworkProtocol": "not-captured"
+    }
+  },
+  {
+    "domain": "toolscout.ai",
+    "status": "user-skipped",
+    "url": "https://toolscout.ai/submit",
+    "reason": "已登录并选择Standard Free及Free Trial；最后强制访问5个社区工具解锁，用户明确先跳过。无自动互访、无最终投稿。",
+    "queueDays": null,
+    "queueText": "A week or more; no published upper bound",
+    "login": "Email or Google; ordinary email chosen",
+    "termsUrl": "https://toolscout.ai/tos",
+    "privacyUrl": "https://toolscout.ai/privacy-policy",
+    "proofImage": "docs/proofs/toolscout-community-gate.jpg",
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "emailVerified": true,
+    "termsConfirmed": true,
+    "productPricing": "Free Trial",
+    "placement": "Standard Free $0 forever",
+    "mandatoryCommunityVisits": 5,
+    "automatedVisits": 0,
+    "userChoseSkip": true,
+    "declaredMethod": "POST",
+    "declaredAction": "/submit",
+    "steps": [
+      {
+        "step": 1,
+        "fields": {
+          "#name": "name",
+          "#url": "url",
+          "#description": "description"
+        },
+        "category": "Optional; allow ToolScout to choose"
+      },
+      {
+        "step": 2,
+        "action": "Skip optional marketing quiz"
+      },
+      {
+        "step": 3,
+        "action": "Continue with Free",
+        "selected": "Standard listing Free $0 forever",
+        "paidAlternativesNotSelected": [
+          "Boost $49",
+          "Featured $99"
+        ]
+      },
+      {
+        "step": 4,
+        "platform": "Website",
+        "pricing": "Free Trial",
+        "unverifiedClaimsNotSelected": [
+          "I built this",
+          "Completely free"
+        ],
+        "unknownDownloadAndPricingUrls": "blank"
+      },
+      {
+        "step": 5,
+        "heading": "Support the community first",
+        "requiredVisits": 5,
+        "completedVisits": 0,
+        "finalButton": "Submit for review (disabled)",
+        "decision": "user-skipped"
+      }
+    ]
+  },
+  {
+    "domain": "alternative.me",
+    "status": "waiting-email-verification",
+    "url": "https://alternative.me/account/",
+    "reason": "用户注册后已登录，页面Pending User / Unverified Email-Address。投稿名称第一步Next无进展，已点一次Resend Verification Email，授权Gmail仍无确认信。未最终投稿，不重复创建账号。",
+    "queueDays": null,
+    "howToUrl": "https://alternative.me/how-to/submit-software/",
+    "proofImage": "docs/proofs/alternative-me-email-unverified.jpg",
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "accountCreatedByUser": true,
+    "passwordRecorded": false,
+    "emailVerified": false,
+    "submissionUrl": "https://alternative.me/how-to/submit-software/",
+    "finalEmailRecheck": {
+      "date": "2026-11-05",
+      "scope": "Gmail in:anywhere, site identity + support@rtfv.app, last7days",
+      "matchingEmails": 0
+    }
+  },
+  {
+    "domain": "saasaitools.com",
+    "status": "manual-only-submission",
+    "url": "https://saasaitools.com/join/",
+    "reason": "用户完成注册，Gmail确认后可进入免费投稿。普通队列>2个月、无上限；表单明确We do not accept submissions made through automated methods。只记录人工渠道，不用插件自动投。产品定价仅Free/Freemium/Paid，未改写Free Trial。未投稿，未发社区介绍。",
+    "queueDays": null,
+    "termsUrl": "https://saasaitools.com/terms/",
+    "privacyUrl": "https://saasaitools.com/privacy/",
+    "proofImage": "docs/proofs/saasaitools-manual-only.jpg",
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "emailVerified": true,
+    "queueText": "Estimated wait >2 months; no upper bound",
+    "freePlanUrl": "https://saasaitools.com/select-listing-type/",
+    "submissionUrl": "https://saasaitools.com/submit/",
+    "automationPolicy": "We do not accept submissions made through automated methods.",
+    "formAnalysis": {
+      "requiredTitle": "#ff_6_post_title",
+      "visibleFields": [
+        "Tool name",
+        "Category (Video available)",
+        "Tagline",
+        "Description",
+        "Website URL",
+        "Product pricing: Free/Freemium/Paid",
+        "Features",
+        "Use cases"
+      ],
+      "optionalFields": [
+        "X/Twitter",
+        "Image"
+      ],
+      "finalButton": "Submit for review",
+      "actualNetworkProtocol": "not-captured",
+      "filled": false,
+      "submitted": false
+    }
+  },
+  {
+    "domain": "aitophub.com",
+    "status": "submitted-pending-review",
+    "url": "https://aitophub.com/",
+    "reason": "点击SUBMIT TOOL后表单延迟加载成功。选择Regular within30days-free、AI Video Editor，原描述+FreeTrial写Additional information；最终Thank you for submitting your tool明确回执，无付款或强制互链。",
+    "queueDays": 30,
+    "freeEvidence": "Regular (within 30 days - free); Instant within24h costs49USD, not selected",
+    "fields": {
+      "[name=\"first name\"]": "firstName",
+      "[name=\"last name\"]": "lastName",
+      "[name=email]": "email",
+      "[name=\"tool name\"]": "name",
+      "[name=\"tool url\"]": "url",
+      "[name=\"tool general category\"]": "AI Video Editor",
+      "[name=\"submit speed\"]": "Regular (within 30 days - free)",
+      "[name=\"additional info\"]": "original description + Free Trial note"
+    },
+    "skip": [
+      "[name=\"video review\"]"
+    ],
+    "declaredMethod": "post",
+    "declaredAction": "",
+    "actualNetworkProtocol": "not-captured",
+    "submitButton": "input[name=send]",
+    "receiptUrl": "https://aitophub.com/thank-you-submit",
+    "result": "Thank you for submitting your tool. We will check your application and notice you when your tool will appears on our catalog",
+    "proofImage": "docs/proofs/aitophub-rtfv.jpg",
+    "submitted": true,
+    "observedDate": "2026-11-05"
+  },
+  {
+    "domain": "supertools.therundown.ai",
+    "status": "no-public-entry-found",
+    "url": "https://www.therundown.ai/tools",
+    "reason": "原子域名重定向TheRundown主页，从Tools导航到实际目录。当前目录仅搜索/分类/页码，投稿相关链接未找到，仅Advertise及联系邮箱；不把订阅表单或广告购买当免费投稿。",
+    "queueDays": null,
+    "submitted": false,
+    "observedDate": "2026-11-05"
+  }
+]

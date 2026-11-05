@@ -1,0 +1,32 @@
+<!doctype html><html><body><main></main><script>
+const main = document.querySelector('main');
+if (localStorage.getItem('authenticated') === 'yes') {
+  main.innerHTML = `<form><label>App name<input id="appName" name="appName" required></label><label>App URL<input id="url" name="url" type="url" required></label><button type="submit">Submit recommendation</button></form>`;
+  main.querySelector('button').onclick = () => {
+    if (!main.querySelector('#appName').value) localStorage.setItem('premature-click', 'yes');
+  };
+  main.querySelector('form').onsubmit = event => {
+    event.preventDefault();
+    localStorage.setItem('recommendation', JSON.stringify(Object.fromEntries(new FormData(event.target))));
+    main.innerHTML = '<h3>The request has been sent successfully.</h3><p>Thank you! We will review the app submission as soon as possible.</p>';
+  };
+} else if (location.pathname !== '/login') {
+  location.replace('/login');
+} else {
+  main.innerHTML = '<h1>Sign in or create an account</h1><button>Continue with email</button><button id="google">Sign in with Google</button><p>By continuing, you agree to our Terms of Service and Privacy Policy.</p>';
+  document.querySelector('#google').onclick = () => localStorage.setItem('wrong-google-account', 'yes');
+  main.querySelector('button').onclick = () => {
+    main.innerHTML = '<form><label>Email address<input name="email" type="email" required></label><button>Continue</button></form>';
+    main.querySelector('form').onsubmit = event => {
+      event.preventDefault();
+      localStorage.setItem('account-email', main.querySelector('input').value);
+      main.innerHTML = '<h2>Check your inbox. Enter the code we sent to sign in.</h2><label>Code<input name="code" autocomplete="one-time-code" maxlength="6"></label><button>Sign in</button>';
+      main.querySelector('input').oninput = event => {
+        if (event.target.value !== '483921') return;
+        localStorage.setItem('authenticated', 'yes');
+        location.replace('/en/apps/submit');
+      };
+    };
+  };
+}
+</script></body></html>

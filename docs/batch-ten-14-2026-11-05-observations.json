@@ -1,0 +1,12 @@
+[
+  {"domain":"proaitools.net","status":"access-blocked","analysisLevel":"blocked","url":"https://proaitools.net/","reason":"重新访问仍是TLS握手被对端提前关闭。内置浏览器停在连接错误页，未改用不安全连接。"},
+  {"domain":"producthunt.com","status":"waiting-login","analysisLevel":"live-entry-review","url":"https://www.producthunt.com/launch","reason":"首页和Launch Guide已打开。官方说明平台免费使用。发布步骤是登录后点右上角Submit，再点New Product，先填产品网址。未登录，未看到登录后的表单，不加入插件。"},
+  {"domain":"seekme.ai","status":"access-blocked","analysisLevel":"blocked","url":"https://seekme.ai/","reason":"重新访问仍是TLS握手被对端提前关闭。内置浏览器停在连接错误页，未改用不安全连接。"},
+  {"domain":"shenqi.io","status":"excluded-unrelated","analysisLevel":"live-entry-review","url":"https://shenqi.io/","reason":"站点是自有的AI图片和视频生成器。导航只有首页、AI图片、AI视频和我的设计，没有投稿或收录入口。未提交。"},
+  {"domain":"similartool.ai","status":"site-error","analysisLevel":"blocked","url":"https://similartool.ai/","reason":"Cloudflare 522 Connection timed out，源站没有完成请求。未取得投稿表单。"},
+  {"domain":"softgist.com","status":"access-blocked","analysisLevel":"blocked","url":"https://softgist.com/","reason":"证书主机名不匹配。内置浏览器停在连接错误页，未绕过安全警告。"},
+  {"domain":"softonic-ar.com","status":"access-blocked","analysisLevel":"blocked","url":"https://www.softonic-ar.com/","reason":"浏览器停在Client Challenge验证页，未代答图片验证码，未到达目录。"},
+  {"domain":"softonic.com.br","status":"access-blocked","analysisLevel":"blocked","url":"https://www.softonic.com.br/","reason":"普通请求返回412。与已打开的日文站和阿语站一样停在浏览器验证，未代答，未到达目录。"},
+  {"domain":"softonic.jp","status":"access-blocked","analysisLevel":"blocked","url":"https://www.softonic.jp/","reason":"浏览器停在Client Challenge，要求输入图片字符。未代答，未到达目录。"},
+  {"domain":"softonic.ru","status":"access-blocked","analysisLevel":"blocked","url":"https://softonic.ru/","reason":"普通请求返回412。与已打开的日文站和阿语站一样停在浏览器验证，未代答，未到达目录。"}
+]

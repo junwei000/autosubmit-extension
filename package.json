@@ -1,12 +1,13 @@
 {
-  "name": "autosubmit-extension",
-  "version": "1.0.1",
+  "name": "autosubmit",
+  "version": "2.0.0",
   "private": true,
-  "description": "Browser extension that detects submission forms on AI directory sites and autofills them with your product info.",
+  "description": "Browser extension that batch-submits your product to free AI directories: fills each form, picks the free plan and submits.",
   "license": "MIT",
   "scripts": {
+    "directories": "node scripts/report-directories.js",
     "icons": "node scripts/render-icons.js",
-    "test": "node test/e2e.js",
+    "test": "node test/e2e.js && node test/e2e-verify.js && node test/e2e-directories.js && node test/e2e-batch-ten.js && node test/e2e-batch-two.js && node test/e2e-tinylaunch.js && node test/e2e-batch-four.js && node test/e2e-batch-five.js && node test/e2e-login.js && node test/e2e-batch-six.js && node test/e2e-batch-eight.js && node test/e2e-batch-nine.js && node test/e2e-batch-codemarket.js && node test/e2e-batch-freedir.js && node test/e2e-batch-guide.js",
     "zip": "scripts/package.sh"
   },
   "devDependencies": {

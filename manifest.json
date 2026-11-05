@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "AutoSubmit",
-  "version": "1.0.1",
-  "description": "Detect submission forms on AI directory sites and autofill them with your product info. All data stays in your browser.",
+  "version": "2.0.0",
+  "description": "Batch-submits your product to free AI directories: opens each site, fills the form, picks the free plan and submits. All data stays in your browser.",
   "icons": {
     "16": "icons/icon16.png",
     "32": "icons/icon32.png",
@@ -20,20 +20,31 @@
   "background": {
     "service_worker": "src/background.js"
   },
-  "permissions": ["storage", "unlimitedStorage"],
+  "permissions": [
+    "storage",
+    "unlimitedStorage",
+    "alarms",
+    "scripting"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
   "options_page": "src/manage.html",
   "content_scripts": [
     {
-      "matches": ["http://*/*", "https://*/*"],
-      "js": ["src/content.js"],
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "src/sites.js",
+        "src/i18n.js",
+        "src/engine.js",
+        "src/runner.js"
+      ],
       "run_at": "document_idle",
       "all_frames": false
-    }
-  ],
-  "web_accessible_resources": [
-    {
-      "resources": ["src/panel.html", "src/panel.css", "src/panel.js", "src/i18n.js", "src/store.js", "icons/logo.svg"],
-      "matches": ["http://*/*", "https://*/*"]
     }
   ]
 }

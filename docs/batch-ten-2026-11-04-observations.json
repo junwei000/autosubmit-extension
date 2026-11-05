@@ -1,0 +1,632 @@
+[
+  {
+    "domain": "ai-to.cn",
+    "observedDate": "2026-11-04",
+    "forms": [
+      {
+        "action": null,
+        "fields": [
+          {
+            "id": "tougao_ico",
+            "maxLength": -1,
+            "name": "tougao_ico",
+            "placeholder": null,
+            "required": false,
+            "type": "hidden"
+          },
+          {
+            "id": "upload_ico",
+            "maxLength": -1,
+            "name": "tougao_ico",
+            "placeholder": null,
+            "required": false,
+            "type": "file"
+          },
+          {
+            "id": "",
+            "maxLength": 30,
+            "name": "post_title",
+            "placeholder": "名称",
+            "required": false,
+            "type": "text"
+          },
+          {
+            "id": "tougao_wechat_id",
+            "maxLength": -1,
+            "name": "wechat_id",
+            "placeholder": "公众号ID(微信号)",
+            "required": false,
+            "type": "text"
+          },
+          {
+            "id": "",
+            "maxLength": -1,
+            "name": "link",
+            "placeholder": "链接",
+            "required": false,
+            "type": "text"
+          },
+          {
+            "id": "",
+            "maxLength": 80,
+            "name": "sescribe",
+            "placeholder": "简介",
+            "required": false,
+            "type": "text"
+          },
+          {
+            "id": "",
+            "maxLength": -1,
+            "name": "post_content",
+            "placeholder": "输入网址介绍",
+            "required": false,
+            "type": "textarea"
+          },
+          {
+            "id": "post_cat",
+            "maxLength": -1,
+            "name": "category",
+            "options": [
+              {
+                "text": "   AI图片去水印  (8)",
+                "value": "1377"
+              },
+              {
+                "text": "AI视频工具  (41)",
+                "value": "21"
+              }
+            ],
+            "placeholder": null,
+            "required": false,
+            "type": "select-one"
+          },
+          {
+            "id": "",
+            "maxLength": -1,
+            "name": "tags",
+            "placeholder": "输入标签",
+            "required": false,
+            "type": "textarea"
+          },
+          {
+            "id": "",
+            "maxLength": -1,
+            "name": "user_name",
+            "placeholder": "请输入昵称",
+            "required": false,
+            "type": "text"
+          },
+          {
+            "id": "",
+            "maxLength": -1,
+            "name": "contact_details",
+            "placeholder": "输入联系方式",
+            "required": false,
+            "type": "text"
+          },
+          {
+            "id": "",
+            "maxLength": -1,
+            "name": "sites_type",
+            "placeholder": null,
+            "required": false,
+            "type": "hidden"
+          },
+          {
+            "id": "",
+            "maxLength": -1,
+            "name": "action",
+            "placeholder": null,
+            "required": false,
+            "type": "hidden"
+          },
+          {
+            "id": "_wpnonce",
+            "maxLength": -1,
+            "name": "_wpnonce",
+            "placeholder": null,
+            "required": false,
+            "type": "hidden"
+          },
+          {
+            "id": "",
+            "maxLength": -1,
+            "name": "_wp_http_referer",
+            "placeholder": null,
+            "required": false,
+            "type": "hidden"
+          },
+          {
+            "id": "",
+            "maxLength": -1,
+            "name": "captcha_type",
+            "placeholder": null,
+            "required": false,
+            "type": "hidden"
+          }
+        ],
+        "method": "post"
+      }
+    ],
+    "url": "https://ai-to.cn/contribute/"
+  },
+  {
+    "domain": "iforai.com",
+    "observedDate": "2026-11-04",
+    "forms": [
+      {
+        "action": null,
+        "fields": [
+          {
+            "id": "tougao_ico",
+            "maxLength": -1,
+            "name": "tougao_ico",
+            "placeholder": null,
+            "required": false,
+            "type": "hidden"
+          },
+          {
+            "id": "upload_ico",
+            "maxLength": -1,
+            "name": "tougao_ico",
+            "placeholder": null,
+            "required": false,
+            "type": "file"
+          },
+          {
+            "id": "",
+            "maxLength": 30,
+            "name": "post_title",
+            "placeholder": "名称",
+            "required": false,
+            "type": "text"
+          },
+          {
+            "id": "tougao_wechat_id",
+            "maxLength": -1,
+            "name": "wechat_id",
+            "placeholder": "公众号ID(微信号)",
+            "required": false,
+            "type": "text"
+          },
+          {
+            "id": "",
+            "maxLength": -1,
+            "name": "link",
+            "placeholder": "链接",
+            "required": false,
+            "type": "text"
+          },
+          {
+            "id": "",
+            "maxLength": 80,
+            "name": "sescribe",
+            "placeholder": "简介",
+            "required": false,
+            "type": "text"
+          },
+          {
+            "id": "",
+            "maxLength": -1,
+            "name": "post_content",
+            "placeholder": "输入网址介绍",
+            "required": false,
+            "type": "textarea"
+          },
+          {
+            "id": "post_cat",
+            "maxLength": -1,
+            "name": "category",
+            "options": [
+              {
+                "text": "   水印移除  (11)",
+                "value": "3010"
+              },
+              {
+                "text": "视频类  (138)",
+                "value": "7"
+              },
+              {
+                "text": "   视频生成  (40)",
+                "value": "3597"
+              },
+              {
+                "text": "   视频剪辑  (20)",
+                "value": "3598"
+              },
+              {
+                "text": "   视频切片  (7)",
+                "value": "3600"
+              },
+              {
+                "text": "   字幕/翻译  (3)",
+                "value": "3601"
+              },
+              {
+                "text": "   音视频转录  (15)",
+                "value": "3602"
+              },
+              {
+                "text": "   视频换脸  (13)",
+                "value": "3604"
+              }
+            ],
+            "placeholder": null,
+            "required": false,
+            "type": "select-one"
+          },
+          {
+            "id": "",
+            "maxLength": -1,
+            "name": "tags",
+            "placeholder": "输入标签",
+            "required": false,
+            "type": "textarea"
+          },
+          {
+            "id": "",
+            "maxLength": -1,
+            "name": "user_name",
+            "placeholder": "请输入昵称",
+            "required": false,
+            "type": "text"
+          },
+          {
+            "id": "",
+            "maxLength": -1,
+            "name": "contact_details",
+            "placeholder": "输入联系方式",
+            "required": false,
+            "type": "text"
+          },
+          {
+            "id": "",
+            "maxLength": -1,
+            "name": "sites_type",
+            "placeholder": null,
+            "required": false,
+            "type": "hidden"
+          },
+          {
+            "id": "",
+            "maxLength": -1,
+            "name": "action",
+            "placeholder": null,
+            "required": false,
+            "type": "hidden"
+          },
+          {
+            "id": "_wpnonce",
+            "maxLength": -1,
+            "name": "_wpnonce",
+            "placeholder": null,
+            "required": false,
+            "type": "hidden"
+          },
+          {
+            "id": "",
+            "maxLength": -1,
+            "name": "_wp_http_referer",
+            "placeholder": null,
+            "required": false,
+            "type": "hidden"
+          },
+          {
+            "id": "",
+            "maxLength": -1,
+            "name": "image_captcha",
+            "placeholder": "图形验证码",
+            "required": false,
+            "type": "text"
+          },
+          {
+            "id": "",
+            "maxLength": -1,
+            "name": "image_id",
+            "placeholder": null,
+            "required": false,
+            "type": "hidden"
+          }
+        ],
+        "method": "post"
+      }
+    ],
+    "url": "https://iforai.com/submit_website/"
+  },
+  {
+    "domain": "ainewshub.org",
+    "observedDate": "2026-11-04",
+    "url": "https://www.ainewshub.org/submit-ai-tool",
+    "form": "#comp-lr80oeg6",
+    "declaredMethod": "GET",
+    "action": null,
+    "freeEvidence": "FAQ: free basic listing, max two free submissions per user/month, 14–21 business days",
+    "result": "Form cleared after submit; no explicit receipt, authorized Gmail search found no confirmation; do not retry blindly",
+    "fields": {
+      "#input_comp-lr80oegl": "name",
+      "#input_comp-lr80oegu": "url",
+      "#input_comp-m7iyrhh2": "AI Video / Video Editing",
+      "#input_comp-lr80oeh4": "Free Trial",
+      "#input_comp-lr80td2t": "email",
+      "#textarea_comp-lr80oeh7": "description",
+      "#input_comp-m7kiuhkp": "From my AI directory submission list."
+    }
+  },
+  {
+    "domain": "waimao21.com",
+    "observedDate": "2026-11-04",
+    "captcha": [
+      {
+        "id": "input_veri",
+        "name": "captcha_canvas",
+        "type": "text"
+      }
+    ],
+    "forms": [
+      {
+        "action": "/%e7%94%b3%e8%af%b7%e6%94%b6%e5%bd%95",
+        "fields": [
+          {
+            "id": "",
+            "maxLength": -1,
+            "name": "tougao_type",
+            "placeholder": null,
+            "type": "hidden"
+          },
+          {
+            "id": "tougao_sites_ico",
+            "maxLength": -1,
+            "name": "tougao_sites_ico",
+            "placeholder": null,
+            "type": "hidden"
+          },
+          {
+            "id": "upload_sites_ico",
+            "maxLength": -1,
+            "name": "tougao_ico",
+            "placeholder": null,
+            "type": "file"
+          },
+          {
+            "id": "",
+            "maxLength": 30,
+            "name": "tougao_title",
+            "placeholder": "网站名称 *",
+            "type": "text"
+          },
+          {
+            "id": "",
+            "maxLength": -1,
+            "name": "tougao_sites_link",
+            "placeholder": "网站链接 *",
+            "type": "text"
+          },
+          {
+            "id": "",
+            "maxLength": 50,
+            "name": "tougao_sites_sescribe",
+            "placeholder": "网站描述 *",
+            "type": "text"
+          },
+          {
+            "id": "tougaocategorg_sites",
+            "maxLength": -1,
+            "name": "tougao_cat",
+            "options": [
+              {
+                "text": "   AI视频工具  (66)",
+                "value": "207"
+              }
+            ],
+            "placeholder": null,
+            "type": "select-one"
+          },
+          {
+            "id": "",
+            "maxLength": 100,
+            "name": "tougao_sites_keywords",
+            "placeholder": "网站关键字，请用英语逗号分隔",
+            "type": "text"
+          },
+          {
+            "id": "",
+            "maxLength": -1,
+            "name": "tougao_content",
+            "placeholder": null,
+            "type": "textarea"
+          }
+        ],
+        "method": "post"
+      }
+    ],
+    "text": "申请收录\n推荐资源\n网站\n公众号\n资源\n网站图标:\n选择分类 *\n常用工具  (25)\n亚马逊站点  (200)\n   亚马逊美国站  (11)\n   亚马逊英国站  (10)\n   亚马逊日本站  (10)\n   亚马逊德国站  (10)\n   亚马逊澳大利亚站  (10)\n   亚马逊巴西站  (9)\n   亚马逊加拿大站  (10)\n   亚马逊埃及站  (10)\n   亚马逊法国站  (10)\n   亚马逊印度站  (10)\n   亚马逊意大利站  (10)\n   亚马逊墨西哥站  (10)\n   亚马逊荷兰站  (10)\n   亚马逊波兰站  (10)\n   亚马逊沙特站  (10)\n   亚马逊新加坡站  (10)\n   亚马逊西班牙站  (10)\n   亚马逊瑞典站  (10)\n   亚马逊土耳其站  (10)\n   亚马逊阿联酋站  (10)\n论坛咨询  (7)\n电商综合软件  (55)\n关键字  (17)\n选品分析  (34)\n亚马逊卖家专区  (12)\n收款金融  (29)\n电商大全  (96)\n   北美  (22)\n   欧洲  (14)\n   东南亚  (13)\n   拉美  (8)\n   俄罗斯  (4)\n   土耳其  (4)\n   中东  (2)\n   印度  (5)\n   澳洲  (3)\n   非洲  (4)\n   B2B  (2)\n   日本  (11)\n   韩国  (4)\n商标专利  (9)\n货源网站  (9)\nDeals网站  (44)\n   英国deals  (6)\n   日本deals  (7)\n   美国deals  (27)\n   加拿大deals  (1)\n   德国deals  (2)\n   意大利deals  (0)\n   法国deals  (1)\n   西班牙deals  (0)\n   印度deals  (0)\n卖家插件  (27)\n培训服务  (14)\nShopify专区  (15)\n营销工具  (176)\n   网红营销  (25)\n   社交营销  (29)\n   邮件营销  (21)\n   SEO工具  (25)\n   社交媒体  (14)\n   Facebook  (18)\n   Google  (18)\n   广告平台  (17)\n   外包平台  (12)\n建站工具  (42)\n   域名  (10)\n   主机  (11)\n   云服务器  (11)\n   独立服务器  (10)\n独立站专区  (13)\n转运公司  (17)\n   美国转运  (12)\n   英国转运  (4)\n   香港转运  (5)\n   日本转运  (9)\n   西班牙转运  (1)\n   韩国转运  (1)\n   丹麦转运  (1)\n   澳大利亚转运  (4)\n   德国转运  (1)\n   加拿大转运  (1)\n   法国转运  (2)\nMedia Buy专区  (84)\n   追踪软件  (11)\n   SPY软件  (11)\n   流量平台  (30)\n   广告联盟  (32)\nAI工具  (423)\n   热门工具  (11)\n   AI写作工具  (59)\n   AI图像工具  (30)\n   AI音频工具  (33)\n   AI视频工具  (66)\n   AI设计工具  (28)\n   AI编程工具  (22)\n   AI对话聊天  (21)\n   AI办公工具  (38)\n   AI内容检测  (13)\n   AI提示指令  (12)\n   AI学习网站  (12)\n   AI开发框架  (10)\n   AI训练模型  (19)\n   AI基本工具  (58)\n国内商家  (24)\n网站介绍:\n提交\n友情链接: 淘金云 每日外汇网 数字货币导航 360AFF 美股百科 外贸百科 AIGC百科  ",
+    "url": "https://waimao21.com/%e7%94%b3%e8%af%b7%e6%94%b6%e5%bd%95",
+    "result": "User chose to skip CAPTCHA live submission; not submitted"
+  },
+  {
+    "domain": "anyfp.com",
+    "canonicalDomain": "tooltrove.net",
+    "observedDate": "2026-11-04",
+    "url": "https://tooltrove.net/submit",
+    "freeEvidence": "FREE LISTING; no pay-to-rank; badge only enables followed link",
+    "queueText": "Usually within a couple of days, numerical upper bound unknown",
+    "result": "Pricing requires Free/Freemium/Paid; no Free Trial. RTFV stopped without selecting inaccurate model; no final submission."
+  },
+  {
+    "domain": "pitchwall.co",
+    "observedDate": "2026-11-04",
+    "url": "https://pitchwall.co/submit",
+    "freeEvidence": "Free Launch, no payment or reciprocal link",
+    "freeAction": "a[href=\"/product/submit?plan=free\"]",
+    "queueText": "Minimum 30-day waiting period; upper bound unknown",
+    "loginUrl": "https://pitchwall.co/auth/login?redirect=/product/submit?plan=free",
+    "authMethods": [
+      "Google",
+      "GitHub",
+      "Microsoft",
+      "Discord"
+    ],
+    "authTerms": "https://pitchwall.co/pages/terms",
+    "privacy": "https://pitchwall.co/pages/privacy-policy",
+    "authNewsletter": true,
+    "result": "No business email login observed; authenticated submission form not obtained; no account created or submission sent"
+  },
+  {
+    "domain": "aier.im",
+    "observedDate": "2026-11-04",
+    "url": "https://aier.im/submit",
+    "form": "form:has(input[name=website_url])",
+    "pricingOptions": [
+      "Free",
+      "Freemium",
+      "Paid",
+      "Contact for Pricing"
+    ],
+    "category": "Video Editing",
+    "profession": "Video Editor / Motion Graphics Designer",
+    "pickerMarkup": "button[role=combobox] inside div with label Pricing Type / Categories / Target Professions, hidden native select sibling; role=option portal",
+    "termsUrl": "https://aier.im/terms-of-service",
+    "privacyUrl": "https://aier.im/privacy-policy",
+    "queueText": "2–3 business days",
+    "result": "No fee or backlink step in displayed form; final RTFV submit blocked by missing Free Trial, no inaccurate model selected"
+  },
+  {
+    "domain": "saashub.com",
+    "observedDate": "2026-11-04",
+    "url": "https://www.saashub.com/services/submit",
+    "freeEvidence": "Free, 1–12 weeks; paid $75/$99 options ignored",
+    "queueDays": 84,
+    "steps": [
+      "URL Continue accepts Terms/Privacy",
+      "Product details, 3+ categories, at least 1 competitor, contact email",
+      "Click Free only",
+      "Related alternatives page: follow Product submission link to /rtfv/added"
+    ],
+    "declarations": [
+      {
+        "method": "GET",
+        "action": "/services/new"
+      },
+      {
+        "method": "POST",
+        "action": "/services"
+      }
+    ],
+    "fields": {
+      "#service_name": "name",
+      "#service_tagline": "tagline",
+      "#service_contact_email": "email",
+      "#react-select-2-input": "3 categories",
+      "#react-select-3-input": "competitor"
+    },
+    "categories": [
+      "Video Editors",
+      "Video Watermark Remover",
+      "Watermark Removal"
+    ],
+    "competitor": "HitPaw Watermark Remover",
+    "nameConflict": "Name - has already been taken",
+    "primaryName": "Remove Text From Video",
+    "alternateName": "RTFV",
+    "alternateNameUserApproved": true,
+    "result": "RTFV was submitted successfully. It will appear online once it is approved.",
+    "receiptUrl": "https://www.saashub.com/rtfv/added",
+    "proofImage": "docs/proofs/saashub-rtfv.jpg",
+    "termsConfirmed": true
+  },
+  {
+    "domain": "sonicrun.com",
+    "observedDate": "2026-11-04",
+    "url": "https://www.sonicrun.com/freelisting.html",
+    "queueDays": 30,
+    "freeEvidence": "Free Listing after 30 days; no guarantee",
+    "declarations": [
+      {
+        "method": "POST",
+        "action": "/cgi-bin/add.cgi"
+      },
+      {
+        "method": "POST",
+        "action": "https://www.sonicrun.com/cgi-bin/v.cgi"
+      }
+    ],
+    "fields": {
+      "[name=url]": "url",
+      "[name=email]": "email",
+      "[name=name]": "fullName",
+      "[name=terms]": "active agreement"
+    },
+    "emailLinkPath": "/cgi-bin/v.cgi",
+    "verificationForm": "form:has(input[name=verify])",
+    "verificationSubmit": "Add Your Site",
+    "excludedButtons": [
+      "Buy Now",
+      "Upgrade Your Submission"
+    ],
+    "accountSideEffect": "FreeWebMonitoring free account, specifically user approved",
+    "result": "Submission Received. Your free listing will be added to our index after 30 days. Free listings are not guaranteed.",
+    "receiptUrl": "https://www.sonicrun.com/cgi-bin/v.cgi",
+    "proofImage": "docs/proofs/sonicrun-rtfv.jpg",
+    "termsConfirmed": true,
+    "authTokenRecorded": false
+  },
+  {
+    "domain": "theainavigator.com",
+    "observedDate": "2026-11-04",
+    "url": "https://www.theainavigator.com/submit-an-ai-tool",
+    "form": ".s-email-form",
+    "fields": {
+      "[placeholder=\"name of the AI tool\"]": "name",
+      "[placeholder=\"start with https://\"]": "url",
+      "[placeholder=\"In simple and clear wording\"]": "tagline",
+      "[placeholder=\"First Last\"]": "fullName",
+      "input[name$=\"#email\"]": "email"
+    },
+    "skip": [
+      "Threads handle",
+      "affiliate program URL"
+    ],
+    "activeAgreement": "input[type=checkbox][id^=gdpr-]",
+    "result": "Thanks for your submission to The AI Navigator!",
+    "queueDays": null,
+    "proofImage": "docs/proofs/theainavigator-rtfv.jpg",
+    "termsConfirmed": true
+  },
+  {
+    "domain": "aisiteleri.com",
+    "observedDate": "2026-11-04",
+    "url": "https://aisiteleri.com/yapay-zeka-oner/",
+    "form": "#wpforms-form-1390",
+    "declaredMethod": "POST",
+    "fields": {
+      "#wpforms-1390-field_0": "firstName",
+      "#wpforms-1390-field_0-last": "lastName",
+      "#wpforms-1390-field_1": "email",
+      "#wpforms-1390-field_3": "url",
+      "#wpforms-1390-field_4": "namedDescription"
+    },
+    "result": "Bizimle iletişime geçtiğiniz için teşekkür ederiz! Kısa zaman içerisinde sizinle iletişime geçeceğiz.",
+    "queueDays": null,
+    "proofImage": "docs/proofs/aisiteleri-rtfv.jpg",
+    "warning": "Ignore suggested email support@rtfv.ca; actual submitted email remains support@rtfv.app"
+  },
+  {
+    "domain": "aitoolsdirectory.com",
+    "observedDate": "2026-11-04",
+    "url": "https://aitoolsdirectory.com/submit-tool",
+    "externalForm": "https://aitool.paperform.co/",
+    "freeEvidence": "Public page free resource; optional Fast Track separate",
+    "pricingOptions": [
+      "Free",
+      "Freemium",
+      "Paid"
+    ],
+    "humanOriginalCopyRequired": true,
+    "requiredCopy": [
+      "20–30 word short description",
+      "50–500 word long description",
+      "How is this tool unique or different?"
+    ],
+    "result": "Not submitted: no Free Trial option; human original content requirement; original user description is 46 words, model-generated long description must not be used here"
+  }
+]

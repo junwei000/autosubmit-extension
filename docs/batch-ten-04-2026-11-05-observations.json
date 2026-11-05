@@ -1,0 +1,274 @@
+[
+  {
+    "domain": "withaitools.com",
+    "observedDate": "2026-11-05",
+    "status": "excluded-already-listed",
+    "url": "https://www.withaitools.com/submit",
+    "freeEvidence": "Every tool gets a free listing forever; paid advertising optional",
+    "result": "RTFV is already listed",
+    "listingUrl": "https://www.withaitools.com/tools/rtfv",
+    "website": "https://rtfv.app/",
+    "listingAddedDate": "2026-10-14",
+    "reason": "已核实既有公开RTFV页面及官网链接，去除已有，不重复投稿；非本批新增回执。",
+    "proofImage": "docs/proofs/withaitools-existing-rtfv.jpg",
+    "fields": {
+      "input[type=url]": "url"
+    },
+    "pricingCorrection": "Existing third-party generated listing says Paid; correct user-provided model Free Trial. Record only; no correction sent.",
+    "submitted": false
+  },
+  {
+    "domain": "aitoolboard.com",
+    "observedDate": "2026-11-05",
+    "status": "blocked-product-pricing",
+    "url": "https://aitoolboard.com/submit",
+    "reason": "Free Listing可选、无需互链，但必填产品定价只有Free/Freemium/Paid/Enterprise，无FreeTrial；不改填错误模式，未提交。",
+    "fields": [
+      "Tool Name required",
+      "Short Description required",
+      "Long Description",
+      "Tool Image <=5MB required; recommended1200x630",
+      "Website URL required",
+      "Company Logo optional file or URL",
+      "Category required",
+      "Pricing Model required",
+      "Starting Price optional",
+      "Tags",
+      "Listing Type Free / Paid $75 / Premium $99"
+    ],
+    "pricingOptions": [
+      "Free",
+      "Freemium",
+      "Paid",
+      "Enterprise"
+    ],
+    "queueDays": null,
+    "submitted": false
+  },
+  {
+    "domain": "youtools.ai",
+    "observedDate": "2026-11-05",
+    "status": "waiting-login",
+    "url": "https://youtools.ai/submit-tool",
+    "reason": "已选Free $0、填资料；最终按钮先弹Google登录。用户明确选择先跳过YouTools，未进行Google登录，未完成投稿。",
+    "queueDays": 21,
+    "queueText": "Free2–3weeks, nofollow",
+    "fields": [
+      "Website URL root domain only",
+      "Tool Name",
+      "Short Description <=200 chars",
+      "Free $0 / Basic $12.90 / Pro $17.90"
+    ],
+    "submitButton": "Submit for Review (must remove default$12.90 first)",
+    "login": "Google only in observed modal; user declined",
+    "submitted": false
+  },
+  {
+    "domain": "activesearchresults.com",
+    "observedDate": "2026-11-05",
+    "status": "submitted-pending-review",
+    "url": "https://www.activesearchresults.com/addwebsite.php",
+    "result": "Added Web Site Confirmation. Thank you for adding your Web site to the Active Search Results search engine.",
+    "reason": "实测免费搜索收录回执；官网说明无需账号/邮件激活，通常1–2小时可搜索；未购买推广或添加互链。",
+    "fields": {
+      "input[name=url]": "url",
+      "input[name=email]": "email"
+    },
+    "submitButton": "input[name=submiturl]",
+    "declaredMethod": "POST",
+    "declaredAction": "/addwebsite.php",
+    "receiptUrl": "https://www.activesearchresults.com/urladdedconfirm.php",
+    "queueDays": 1,
+    "queueText": "Usually1–2hours; hourly crawl/index cycles",
+    "scheduleUrl": "https://www.activesearchresults.com/help/indexschedule.php",
+    "confirmEmail": false,
+    "proofImage": "docs/proofs/activesearchresults-rtfv.jpg",
+    "submitted": true
+  },
+  {
+    "domain": "exactseek.com",
+    "observedDate": "2026-11-05",
+    "status": "attempted-unconfirmed",
+    "url": "https://www.exactseek.com/add.html",
+    "reason": "用户同意条款及附带SiteProNews订阅后已勾选并点Submit Your Site。新标签页cgi只显示页眉，无明确回执；授权Gmail未找到确认邮件。结果未确认，不重投。",
+    "fields": [
+      "URL",
+      "Name (submitter Horan He)",
+      "Email",
+      "Agreed to Terms checkbox"
+    ],
+    "termsUrl": "https://www.exactseek.com/terms.html",
+    "subscription": "SiteProNews webmaster newsletter required; user approved",
+    "termsConfirmed": true,
+    "resultPath": "/cgi-bin/eadd-t-new.cgi",
+    "opensNewTab": true,
+    "proofImage": "docs/proofs/exactseek-attempt-unconfirmed.jpg",
+    "queueDays": null,
+    "submitted": false
+  },
+  {
+    "domain": "nextools.live",
+    "observedDate": "2026-11-05",
+    "status": "attempted-unconfirmed",
+    "url": "https://nextools.live/contact/",
+    "reason": "通过网站明确允许Tool Submission的联系表单发送免费无互链申请，定价写FreeTrial。按钮恢复但表单仍在，无明确回执；Gmail也无确认。保留未确认尝试，不重投。",
+    "fields": {
+      "#wpforms-3161-field_0": "fullName",
+      "#wpforms-3161-field_1": "email",
+      "#wpforms-3161-field_3": "contactSubject",
+      "#wpforms-3161-field_2": "contactMessage"
+    },
+    "skip": [
+      "#wpforms-3161-field_4",
+      "#wpforms-3161-field_5"
+    ],
+    "declaredMethod": "POST",
+    "declaredAction": "/contact/",
+    "emailSuggestion": "Website suggested support@rtfv.ca; ignored, kept actual support@rtfv.app",
+    "responseText": "Contact says24–48hour response, not a listing queue guarantee",
+    "freeStatus": "Contact request itself no payment; listing eligibility pending response",
+    "proofImage": "docs/proofs/nextools-attempt-unconfirmed.jpg",
+    "queueDays": null,
+    "submitted": false
+  },
+  {
+    "domain": "aigist.org",
+    "observedDate": "2026-11-05",
+    "status": "waiting-captcha",
+    "url": "https://aigist.org/submit-tool",
+    "reason": "官网确认免费、通常5个工作日人工审核；资料已填，Video Editor分类、FreeTrial选项正确；reCAPTCHA未完成，按用户要求跳过实投。",
+    "fields": [
+      "title",
+      "url",
+      "categories_json via#category_selector",
+      "pricing_options[] Free Trial",
+      "short_description required",
+      "full_description",
+      "use_cases",
+      "email",
+      "contact_first_name optional"
+    ],
+    "skip": [
+      "starting_price",
+      "main_alternative",
+      "wants_visibility_finding",
+      "buyer_description",
+      "newsletter_email"
+    ],
+    "declaredMethod": "POST",
+    "declaredAction": "/submit-tool-action.php",
+    "queueDays": null,
+    "queueText": "Usually5 business days",
+    "captcha": "Visible reCAPTCHA normal size; never solved",
+    "proofImage": "docs/proofs/aigist-captcha-draft.jpg",
+    "submitted": false
+  },
+  {
+    "domain": "startupbuffer.com",
+    "observedDate": "2026-11-05",
+    "status": "submitted-pending-review",
+    "url": "https://startupbuffer.com/site/submit",
+    "reason": "已按用户授权核实后续（费用上限0）并接受条款，获得Your submission is in / still in review / No promotion package attached回执；未购买19.95美元等推广。排期未知。",
+    "result": "Your submission is in. This listing is still in review. No promotion package is attached yet.",
+    "steps": [
+      "Basic Info: name,url,business email → Continue (draft)",
+      "Your Story: pitch,original full description,actual workspace screenshot <=15MB → Continue (draft)",
+      "Details: countryChina user-confirmed, categoryAI, tags; city/social optional blank → Submit Now",
+      "Promotion page: submission in, still review; no package attached. Stop, do not buy Publish/Power/Vanta"
+    ],
+    "screenshot": "docs/assets/rtfv-workspace.png",
+    "screenshotUpload": "Dropzone dz-complete; required upload; max15MB; native chooser",
+    "termsUrl": "https://startupbuffer.com/site/tos",
+    "privacyUrl": "https://startupbuffer.com/site/privacy",
+    "termsConfirmed": true,
+    "eligibilityExplorationApproved": true,
+    "priceLimit": 0,
+    "receiptUrlOmitted": "Private edit key in URL is deliberately not recorded",
+    "receiptPathPattern": "/promote/<private-key>?status=aftersubmit&source=submission_followup",
+    "queueDays": null,
+    "proofImage": "docs/proofs/startupbuffer-rtfv.jpg",
+    "actualNetworkProtocol": "not-captured",
+    "submitted": true
+  },
+  {
+    "domain": "scoutforge.net",
+    "observedDate": "2026-11-05",
+    "status": "submitted-pending-review",
+    "url": "https://scoutforge.net/app-register",
+    "reason": "用户更改密码并登录，Gmail激活后从My Apps内打开向导。恢复原名称/原描述，清空AI推测的客户画像及竞品信息，上传真实截图；用户明确同意条款及邮件订阅后提交，获Application Submitted Successfully明确回执。免费，无互链或积分消耗，通常3–5工作日。",
+    "accountEmail": "support@rtfv.app",
+    "username": "removertextfromvideo",
+    "passwordRecorded": false,
+    "tokenRecorded": false,
+    "oldPasswordObsolete": true,
+    "freeEvidence": "Dashboard Add your app: Listing is free and a human checks it before it goes live; reviews funded with credits are separate",
+    "queueDays": null,
+    "submitted": true,
+    "result": "Application Submitted Successfully! Your application has been received and is now being processed.",
+    "applicationId": "APP-2026-4206",
+    "queueText": "Usually3–5 business days",
+    "proofImage": "docs/proofs/scoutforge-rtfv.jpg",
+    "termsConfirmed": true,
+    "subscriptionConfirmed": true,
+    "termsUrl": "https://scoutforge.net/terms-and-conditions",
+    "privacyUrl": "https://scoutforge.net/privacy-policy",
+    "fields": {
+      "#url": "url",
+      "#name": "name",
+      "#shortDescription": "tagline",
+      "#longDescription": "description",
+      "#media": "actual workspace screenshot <5MB",
+      "#terms": "active user-approved checkbox",
+      "#mailSubscription": "active user-approved required subscription"
+    },
+    "category": "Design & Creativity",
+    "skippedGeneratedClaims": [
+      "targetCustomers.*",
+      "alternatives.*"
+    ],
+    "steps": [
+      "My Apps → Submit new app client-side link",
+      "Website URL → Next (extraction draft)",
+      "App Details: replace AI text, logo/media/category review → Next (draft)",
+      "Social Media optional blank → terms + email subscription → Submit Register (final)",
+      "Application Submitted Successfully; under review, usually3–5business days"
+    ],
+    "declaredMethod": null,
+    "declaredAction": null,
+    "actualNetworkProtocol": "not-captured"
+  },
+  {
+    "domain": "brownbook.net",
+    "observedDate": "2026-11-05",
+    "status": "blocked-registration-captcha",
+    "url": "https://www.brownbook.net/add-business",
+    "reason": "第一步已按用户确认选择China和SoftwarePublishers（NAICS513210），填名称/官网/邮箱；地址电话未知留空。Next进入第二步，需注册、条款及reCAPTCHA。按用户跳过验证码要求未最终提交。",
+    "country": "China",
+    "countrySource": "User explicitly confirmed2026-11-05",
+    "category": "Software Publishers",
+    "categoryCode": "513210",
+    "fields": [
+      "Business name required",
+      "Business category required",
+      "Country required",
+      "Address/City/Zip/Phone/Mobile/Fax optional",
+      "Email",
+      "Website",
+      "Display Website",
+      "Socials/tags optional"
+    ],
+    "step2": [
+      "Email",
+      "Password",
+      "Confirm Password",
+      "Name",
+      "terms checkbox",
+      "reCAPTCHA",
+      "Next"
+    ],
+    "termsUrl": "https://www.brownbook.net/terms-conditions",
+    "proofImage": "docs/proofs/brownbook-registration-captcha.jpg",
+    "queueDays": null,
+    "submitted": false
+  }
+]

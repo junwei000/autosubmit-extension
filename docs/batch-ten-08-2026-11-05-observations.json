@@ -1,0 +1,136 @@
+[
+  {
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "queueDays": null,
+    "domain": "2agi.net",
+    "status": "access-blocked",
+    "url": "https://2agi.net/",
+    "reason": "重新访问仍是TLS握手被对端提前关闭（UNEXPECTED_EOF），www 同样失败。内置浏览器停在连接错误页。未改用不安全连接，投稿条件未确认。",
+    "analysisLevel": "blocked",
+    "browserError": "SSL unexpected EOF; chrome-error page"
+  },
+  {
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "queueDays": null,
+    "domain": "4mark.net",
+    "status": "excluded-paid",
+    "url": "https://www.4mark.net/",
+    "reason": "Cloudflare 验证通过后到达首页。最低方案 Simple 为 49 美元/篇，Standard 149 美元，Enterprise 249 美元，都是付费文章发布。未下单、未填表。",
+    "analysisLevel": "live-entry-review",
+    "pricing": ["Simple $49.00 / article", "Standard B2B $149.00 / article", "Enterprise Authority $249.00 / article"],
+    "links": ["https://www.4mark.net/add.aspx?plan=simple", "https://www.4mark.net/add.aspx?plan=standard", "https://www.4mark.net/add.aspx?plan=enterprise"]
+  },
+  {
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "queueDays": null,
+    "domain": "998877.com.cn",
+    "status": "needs-free-verification",
+    "url": "https://wj.qq.com/s2/8138981/1c44/",
+    "reason": "首页“申请收录”指向腾讯问卷，本次问题已加载：网址、推荐理由、邮箱，均为必填。未见收费或互链控件。页面要求设计类站点，并写明需在行业内有一定知名度方可收录。插件只填这三项并暂停，未投稿。",
+    "analysisLevel": "live-page-flow",
+    "form": {
+      "declaredMethod": null,
+      "declaredAction": null,
+      "actualNetworkProtocol": "not-captured",
+      "required": ["您要推荐的网址是什么？", "请说明您的推荐理由？", "请留下你的联系邮箱"],
+      "fields": {
+        ".question:has(.question-title) input.inputs-input": "mapped by visible question title to url, description, email"
+      }
+    }
+  },
+  {
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "queueDays": null,
+    "domain": "affordhunt.com",
+    "status": "excluded-parked",
+    "url": "https://www.namepros.com/parked/affordhunt.com?domain=affordhunt.com",
+    "reason": "首页跳到 NamePros 停放页，域名处于 pending，只接受购买咨询。目录已不存在，未提交。",
+    "analysisLevel": "live-entry-review"
+  },
+  {
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "queueDays": null,
+    "domain": "aibesttop.com",
+    "status": "site-error",
+    "url": "https://aibesttop.com/",
+    "reason": "仍为 Cloudflare 523 Origin is unreachable，源站不可达。未取得投稿表单。",
+    "analysisLevel": "blocked",
+    "browserError": "Cloudflare 523"
+  },
+  {
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "queueDays": null,
+    "domain": "aigation.com",
+    "status": "site-error",
+    "url": "https://aigation.com/submit",
+    "reason": "首页可打开。导航 Submit 与 Sign In 分别指向 /submit 和 /sign-in，两者都是 404 Not Found。没有可用投稿表单，未提交。",
+    "analysisLevel": "live-entry-review"
+  },
+  {
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "queueDays": null,
+    "domain": "aihub.cn",
+    "status": "waiting-login",
+    "url": "https://www.aihub.cn/link-register",
+    "reason": "公开“提交产品”页只有 199 元付费方案，飞书表单注明确认方案后再付款，未填写、未付款。另有申请入驻表单需登录，公开分类只有 AI绘画，没有视频类。未注册、未投稿。",
+    "analysisLevel": "live-entry-review",
+    "paidUrl": "https://www.aihub.cn/submit/",
+    "paidPrice": "199 元 / 产品",
+    "form": {
+      "url": "https://www.aihub.cn/link-register",
+      "login": "用户名和密码，另有注册入口",
+      "categories": ["AI绘画"]
+    }
+  },
+  {
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "queueDays": null,
+    "domain": "aihubpro.cn",
+    "status": "waiting-login",
+    "url": "https://www.aihubpro.cn/link-register",
+    "reason": "申请入驻表单可见：网站名称、网址、图标、介绍，分类含 AI视频工具。页面要求先登录，支持邮箱密码以及微信、微博、QQ。未见收费或互链控件，登录后的最终条件未核实。插件只填表并暂停，不自动注册或提交。",
+    "analysisLevel": "live-page-flow",
+    "form": {
+      "declaredMethod": null,
+      "declaredAction": null,
+      "actualNetworkProtocol": "not-captured",
+      "requiredObserved": ["图标", "网站名称", "网站网址", "入驻类别", "网站介绍", "登录"],
+      "fields": {
+        "input[placeholder=网站名称]": "name",
+        "input[placeholder=网站网址]": "url",
+        "select[name=parent]": "AI视频工具",
+        "#link_content_1": "description"
+      }
+    }
+  },
+  {
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "queueDays": null,
+    "domain": "ailisting.ai",
+    "status": "waiting-login",
+    "url": "https://ailisting.ai/submit-tool/",
+    "reason": "投稿页已打开，提示 Please log in to continue，仅 Google 登录。未使用个人 Google 账号，登录后的字段、免费和互链条件未取得。页内 Advertise 不是免费投稿。",
+    "analysisLevel": "live-entry-review",
+    "login": "Google only"
+  },
+  {
+    "submitted": false,
+    "observedDate": "2026-11-05",
+    "queueDays": null,
+    "domain": "aipiwel.com",
+    "status": "access-blocked",
+    "url": "https://aipiwel.com/",
+    "reason": "重新访问仍是TLS握手被对端提前关闭（UNEXPECTED_EOF），www 同样失败。内置浏览器停在连接错误页。未改用不安全连接，投稿条件未确认。",
+    "analysisLevel": "blocked",
+    "browserError": "SSL unexpected EOF; chrome-error page"
+  }
+]

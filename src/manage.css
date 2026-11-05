@@ -78,15 +78,16 @@ dialog::backdrop { background: rgba(0,0,0,.4); }
 .dlg-body { padding: 8px 20px; display: grid; gap: 12px; max-height: calc(100vh - 180px); overflow: auto; }
 .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .fld { display: grid; gap: 4px; font-size: 13px; color: #444; }
-.fld input, .fld textarea {
+.fld input, .fld textarea, .fld select {
   font: inherit; font-size: 14px; border: 1px solid #c4c9d0; border-radius: 6px; padding: 8px 10px; outline: none; width: 100%; resize: vertical;
 }
-.fld input:focus, .fld textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 2px rgba(25,118,210,.15); }
+.fld input:focus, .fld textarea:focus, .fld select:focus { border-color: var(--blue); box-shadow: 0 0 0 2px rgba(25,118,210,.15); }
 .img-box { border: 1px dashed #c4c9d0; border-radius: 8px; height: 120px; display: grid; place-items: center; background: #fafbfc; overflow: hidden; }
 .img-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
 .img-box em { color: var(--muted); font-size: 12px; font-style: normal; }
 .img-actions { display: flex; gap: 6px; }
 .err { color: #d32f2f; margin: 0; }
+.hint { color: var(--muted); font-size: 12px; margin: 0; }
 .dlg-foot { display: flex; justify-content: flex-end; gap: 8px; padding: 12px 20px 16px; }
 
 .snack { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: #323232; color: #fff; padding: 10px 16px; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,.25); }

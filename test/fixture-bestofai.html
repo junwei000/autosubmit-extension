@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>BestofAI</title>
+</head>
+<body>
+  <h1>BestofAI</h1>
+  <!-- Signed out the header button opens the sign-in box; signed in it is a link to /tool/add. -->
+  <button type="button" id="add">Add Tool</button>
+
+  <div id="form" style="display:none">
+    <form method="post" action="/tool/add">
+      <fieldset>
+        <p class="cat-label">Category</p>
+        <button type="button" id="catopen">Tool Categories +</button>
+        <div id="catbox" style="display:none">
+          <input type="text" placeholder="Search categories">
+          <ul>
+            <li><input type="checkbox" id="option-1" name="category" value="1"><label for="option-1">Video creation &amp; editing</label></li>
+            <li><input type="checkbox" id="option-2" name="category" value="2"><label for="option-2">Productivity</label></li>
+            <li><input type="checkbox" id="option-3" name="category" value="3"><label for="option-3">Coding &amp; development</label></li>
+          </ul>
+          <button type="button" id="catselect">Select</button>
+        </div>
+
+        <label for="url">URL</label>
+        <input id="url" name="url" type="url" placeholder="https://example.com">
+
+        <label for="title">Title</label>
+        <input id="title" name="title" type="text" placeholder="Tool name">
+
+        <label for="tags">Tags</label>
+        <input id="tags" name="tags" type="text" placeholder="writing, productivity, image">
+
+        <label for="description">Description</label>
+        <textarea id="description" name="description" placeholder="Briefly describe what this tool does and who it's for…"></textarea>
+
+        <button type="submit" name="_action" value="create">Submit Tool</button>
+      </fieldset>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('add').addEventListener('click', () => { document.getElementById('form').style.display = 'block'; });
+    document.getElementById('catopen').addEventListener('click', () => { document.getElementById('catbox').style.display = 'block'; });
+    document.getElementById('catselect').addEventListener('click', () => { document.getElementById('catbox').style.display = 'none'; });
+    document.querySelector('form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const f = e.target;
+      const data = {
+        url: f.url.value, title: f.title.value, tags: f.tags.value, description: f.description.value,
+        category: [...f.querySelectorAll('input[name=category]:checked')].map((c) => c.value).join(','),
+      };
+      localStorage.setItem('submitted', JSON.stringify(data));
+      f.innerHTML = '<p>' + data.title + ' was successfully added and now is under review!</p>';
+    });
+  </script>
+</body>
+</html>

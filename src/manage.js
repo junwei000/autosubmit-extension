@@ -91,7 +91,10 @@
     $('formErr').hidden = true;
     $('dlgTitle').textContent = p ? t('editLink') : t('addLink');
     const v = p || {};
-    for (const k of ['name', 'url', 'email', 'tagline', 'description', 'useCases', 'features']) form.elements[k].value = v[k] || '';
+    for (const k of ['name', 'url', 'email', 'tagline', 'description', 'longDescription', 'useCases', 'features', 'heroUrl', 'country', 'legalName']) form.elements[k].value = v[k] || '';
+    form.elements.alternateNames.value = (v.alternateNames || []).join('\n');
+    $('pricing').innerHTML = ['', ...Store.PRICING].map((x) => `<option value="${esc(x)}">${esc(x || t('pricingNone'))}</option>`).join('');
+    form.elements.pricing.value = v.pricing || '';
     form.elements.tags.value = (v.tags || []).join(', ');
     setImage('logo', v.logo || null);
     setImage('hero', v.hero || null);
@@ -108,6 +111,9 @@
     const data = Object.fromEntries(new FormData(form).entries());
     const err = (msg) => { $('formErr').textContent = msg; $('formErr').hidden = false; };
     if (!data.name.trim() || !data.url.trim()) return err(t('required'));
+    // Directories such as AppRater reject descriptions under 110 characters.
+    const desc = data.description.trim();
+    if (desc.length < Store.MIN_DESCRIPTION) return err(t('descTooShort', { min: Store.MIN_DESCRIPTION, n: desc.length }));
     let url = data.url.trim();
     if (!/^https?:\/\//i.test(url)) url = `https://${url}`;
     try { new URL(url); } catch { return err(t('invalidUrl')); }
@@ -170,9 +176,102 @@
     });
   });
 
+  // --- import a product from its own website --------------------------------
+  // Reads what the site says about itself (name, description, logo, contact) so it does not have to be typed.
+  async function readProductPage(url) {
+    const res = await fetch(url, { credentials: 'omit' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const doc = new DOMParser().parseFromString(await res.text(), 'text/html');
+    const pick = (...sels) => {
+      for (const s of sels) {
+        const v = (doc.querySelector(s) || {}).content || '';
+        if (v.trim()) return v.trim();
+      }
+      return '';
+    };
+    const abs = (u) => {
+      try { return new URL(u, url).href; } catch { return ''; }
+    };
+    const title = (doc.title || '').trim();
+    const name = pick('meta[property="og:site_name"]', 'meta[name="application-name"]', 'meta[property="og:title"]', 'meta[name="twitter:title"]') ||
+      title.split(/[|｜\-–—]/)[0].trim();
+    const description = pick('meta[property="og:description"]', 'meta[name="description"]', 'meta[name="twitter:description"]');
+    // The page title usually ends with the site name ("Remove Text from Video Online | RTFV"): drop it.
+    const rawTitle = pick('meta[property="og:title"]', 'meta[name="twitter:title"]') || title;
+    const esc = (s) => String(s).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const tagline = (name ? rawTitle.replace(new RegExp(`\\s*[|｜\\-–—]\\s*${esc(name)}\\s*$`, 'i'), '') : rawTitle).trim() || rawTitle;
+    const image = abs(pick('meta[property="og:image"]', 'meta[name="twitter:image"]', 'meta[property="og:image:url"]'));
+    const iconLinks = [...doc.querySelectorAll('link[rel]')].filter((l) => /icon/i.test(l.getAttribute('rel') || ''));
+    // The apple-touch-icon is the sharpest one, the .ico cannot be decoded at all.
+    const icons = iconLinks
+      .sort((a, b) => (/apple-touch-icon/i.test(b.getAttribute('rel') || '') ? 1 : 0) - (/apple-touch-icon/i.test(a.getAttribute('rel') || '') ? 1 : 0))
+      .map((l) => abs(l.getAttribute('href')))
+      .filter((u) => u && !/\.ico(\?|$)/i.test(u));
+    const mailto = (doc.querySelector('a[href^="mailto:"]') || {}).getAttribute ? doc.querySelector('a[href^="mailto:"]').getAttribute('href') : '';
+    const body = doc.body ? doc.body.textContent : '';
+    const email = mailto ? mailto.replace(/^mailto:/i, '').split('?')[0].trim()
+      : ((body.match(/[\w.+-]+@[\w-]+\.[\w.]{2,}/) || [])[0] || '');
+    return {
+      name,
+      description,
+      tagline,
+      email,
+      logo: await downloadImage(icons, 'logo'),
+      hero: await downloadImage([image], 'hero'),
+      heroUrl: image,
+    };
+  }
+
+  // Fetch the first image that works and store it like an uploaded one.
+  async function downloadImage(urls, key) {
+    for (const u of urls) {
+      if (!u) continue;
+      try {
+        const res = await fetch(u);
+        if (!res.ok) continue;
+        const blob = await res.blob();
+        if (!/^image\//.test(blob.type)) continue;
+        const name = (u.split('/').pop() || 'image').split('?')[0] || 'image';
+        const file = new File([blob], name, { type: blob.type });
+        return await processImage(file, key);
+      } catch (e) {}
+    }
+    return null;
+  }
+
+  $('fromUrl').addEventListener('click', () => {
+    $('urlErr').hidden = true;
+    $('urlInput').value = '';
+    $('urlDialog').showModal();
+    $('urlInput').focus();
+  });
+  $('urlDlgClose').addEventListener('click', () => $('urlDialog').close());
+  $('urlDlgCancel').addEventListener('click', () => $('urlDialog').close());
+  $('urlForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const raw = $('urlInput').value.trim();
+    if (!raw) return;
+    const url = /^https?:\/\//i.test(raw) ? raw : `https://${raw}`;
+    const err = $('urlErr');
+    err.hidden = true;
+    $('urlInput').disabled = true;
+    try {
+      const info = await readProductPage(url);
+      $('urlDialog').close();
+      openDialog({ ...info, url });
+    } catch (ex) {
+      err.textContent = t('urlImportFailed', { msg: ex.message || ex });
+      err.hidden = false;
+    } finally {
+      $('urlInput').disabled = false;
+    }
+  });
+
   // --- import / export ------------------------------------------------------
-  $('export').addEventListener('click', () => {
-    const payload = { app: 'AutoSubmit', version: 1, exportedAt: new Date().toISOString(), products };
+  $('export').addEventListener('click', async () => {
+    const who = await Store.getSubmitter();
+    const submitter = Object.fromEntries(['firstName', 'lastName', 'email'].filter(k => typeof who[k] === 'string').map(k => [k, who[k]]));
+    const payload = { app: 'AutoSubmit', version: 1, exportedAt: new Date().toISOString(), products, submitter };
     const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
@@ -198,11 +297,20 @@
         const item = Store.normalize(raw);
         if (raw.submissions) item.submissions = raw.submissions;
         const i = list.findIndex((x) => x.id === item.id || x.url === item.url);
-        if (i >= 0) list[i] = { ...item, id: list[i].id, createdAt: list[i].createdAt };
+        if (i >= 0) list[i] = { ...item, id: list[i].id, createdAt: list[i].createdAt,
+          submissions: { ...list[i].submissions, ...item.submissions },
+          submissionRecords: { ...list[i].submissionRecords, ...item.submissionRecords } };
         else list.push(item);
         n++;
       }
       await Store.saveProducts(list);
+      if (json.submitter && typeof json.submitter === 'object') {
+        const who = await Store.getSubmitter();
+        for (const key of ['firstName', 'lastName', 'email']) {
+          if (typeof json.submitter[key] === 'string') who[key] = json.submitter[key].trim();
+        }
+        await Store.saveSubmitter(who);
+      }
       snack(t('imported', { n }));
     } catch {
       snack(t('importFailed'));

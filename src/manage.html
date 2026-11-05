@@ -19,6 +19,10 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.6 13.4a1 1 0 0 1 0-1.4l3.5-3.5a1 1 0 1 1 1.4 1.4L12 13.4a1 1 0 0 1-1.4 0Zm-2.1 6.4a4.5 4.5 0 0 1-3.2-7.7l2.1-2.1a1 1 0 0 1 1.4 1.4l-2.1 2.1a2.5 2.5 0 0 0 3.5 3.5l2.1-2.1a1 1 0 0 1 1.4 1.4l-2.1 2.1a4.5 4.5 0 0 1-3.1 1.4Zm7-5.3a1 1 0 0 1-.7-1.7l2.1-2.1a2.5 2.5 0 0 0-3.5-3.5l-2.1 2.1a1 1 0 1 1-1.4-1.4L12 5.8a4.5 4.5 0 0 1 6.4 6.4l-2.1 2.1a1 1 0 0 1-.8.2Z"/></svg>
         <span data-i18n="linkManagement"></span>
       </a>
+      <a class="nav-item" href="batch.html">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 21 23 12 2 3v7l15 2-15 2v7Z"/></svg>
+        <span data-i18n="batchSubmit"></span>
+      </a>
     </nav>
     <p class="side-note" data-i18n="localOnly"></p>
   </aside>
@@ -39,6 +43,10 @@
           <button class="mbtn outlined" id="import">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20h14v-2H5v2Zm7-4 5.5-5.5-1.4-1.4L13 12.2V4h-2v8.2L7.9 9.1l-1.4 1.4L12 16Z"/></svg>
             <span data-i18n="importLinks"></span>
+          </button>
+          <button class="mbtn outlined" id="fromUrl">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2a10 10 0 1 0 9.95 11h-2.02A8 8 0 1 1 13 4v2.5L17.5 3.5 13 .5V2Z"/></svg>
+            <span data-i18n="fromUrl"></span>
           </button>
           <button class="mbtn contained" id="add">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5Z"/></svg>
@@ -82,8 +90,13 @@
           <label class="fld"><span data-i18n="email"></span><input name="email" type="email" placeholder="support@example.com"></label>
           <label class="fld"><span data-i18n="tags"></span><input name="tags" data-i18n-ph="phTags"></label>
         </div>
-        <label class="fld"><span data-i18n="tagline"></span><input name="tagline" maxlength="200" data-i18n-ph="phTagline"></label>
-        <label class="fld"><span data-i18n="description"></span><textarea name="description" rows="4"></textarea></label>
+        <label class="fld"><span data-i18n="alternateNames"></span><textarea name="alternateNames" rows="2" data-i18n-ph="phAlternateNames"></textarea></label>
+        <div class="grid2">
+          <label class="fld"><span data-i18n="tagline"></span><input name="tagline" maxlength="200" data-i18n-ph="phTagline"></label>
+          <label class="fld"><span data-i18n="pricing"></span><select name="pricing" id="pricing"></select></label>
+        </div>
+        <label class="fld"><span><span data-i18n="description"></span> *</span><textarea name="description" rows="4"></textarea></label>
+        <label class="fld"><span data-i18n="longDescription"></span><textarea name="longDescription" rows="4"></textarea></label>
         <div class="grid2">
           <label class="fld"><span data-i18n="useCases"></span><textarea name="useCases" rows="4" data-i18n-ph="phUseCases"></textarea></label>
           <label class="fld"><span data-i18n="features"></span><textarea name="features" rows="4" data-i18n-ph="phFeatures"></textarea></label>
@@ -108,11 +121,32 @@
             </div>
           </div>
         </div>
+        <label class="fld"><span data-i18n="heroUrl"></span><input name="heroUrl" type="url" placeholder="https://example.com/screenshot.jpg"></label>
+        <label class="fld"><span data-i18n="productCountry"></span><input name="country" autocomplete="off"></label>
+        <label class="fld"><span data-i18n="legalName"></span><input name="legalName" autocomplete="off"></label>
         <p class="err" id="formErr" hidden></p>
       </div>
       <footer class="dlg-foot">
         <button type="button" class="mbtn text" id="dlgCancel" data-i18n="cancel"></button>
         <button type="submit" class="mbtn contained" data-i18n="save"></button>
+      </footer>
+    </form>
+  </dialog>
+
+  <dialog id="urlDialog">
+    <form id="urlForm" method="dialog" novalidate>
+      <header class="dlg-head">
+        <h2 data-i18n="fromUrl"></h2>
+        <button type="button" class="x" id="urlDlgClose" aria-label="Close">×</button>
+      </header>
+      <div class="dlg-body">
+        <label class="fld"><span><span data-i18n="url"></span> *</span><input id="urlInput" type="url" placeholder="https://" required></label>
+        <p class="hint" data-i18n="fromUrlTip"></p>
+        <p class="err" id="urlErr" hidden></p>
+      </div>
+      <footer class="dlg-foot">
+        <button type="button" class="mbtn text" id="urlDlgCancel" data-i18n="cancel"></button>
+        <button type="submit" class="mbtn contained" data-i18n="load"></button>
       </footer>
     </form>
   </dialog>
